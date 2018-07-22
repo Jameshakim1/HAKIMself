@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#Vipro Bot
+#Team Jams Bot
 
 import LINETCR
 from LINETCR.lib.curve.ttypes import *
@@ -10,11 +10,11 @@ from googletrans import Translator
 from gtts import gTTS
 import time,random,sys,json,codecs,threading,glob,urllib,urllib2,urllib3,re,ast,os,subprocess,requests,tempfile
 
-vipro = LINETCR.LINE()
-#vipro.login(qr=True)
-vipro.login(token='EvSwDgDwuBEUDv5C0Ps8.CuaQedBROOCcnDwop5so6a.015gnAk1ta0xRIHigpJTpVkFaczeS2b274SZM4vlWjQ=')
-vipro.loginResult()
-print "Vipro-Login Success\n\n=====[Sukses Login]====="
+jams = LINETCR.LINE()
+#jams.login(qr=True)
+jams.login(token='EvSwDgDwuBEUDv5C0Ps8.CuaQedBROOCcnDwop5so6a.015gnAk1ta0xRIHigpJTpVkFaczeS2b274SZM4vlWjQ=')
+jams.loginResult()
+print "Login Success\n\n=====[Sukses Login]====="
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -49,8 +49,7 @@ selfMessage ="""
 ╠➩〘Micdel @〙
 ╠➩〘Miclist〙
 ╠═════════════════════════
-║             💠 By : Vipro 💠
-║    〽️ line.me/ti/p/~gjxvipro 〽️
+║             💠 By : TEAM JAMS 💠
 ╚═════════════════════════
 """
 
@@ -69,8 +68,7 @@ botMessage ="""
 ╠➩〘@bye〙
 ╠➩〘Bot on/off〙
 ╠═════════════════════════
-║             💠 By : Vipro 💠
-║    〽️ line.me/ti/p/~gjxvipro 〽️
+║             💠 By : TEAM JAMS 💠
 ╚═════════════════════════
 """
 
@@ -108,8 +106,7 @@ mediaMessage ="""
 ╠➩〘Id@th Text (Translate ID Ke TH〙
 ╠➩〘En@id Text (Translate En Ke ID〙
 ╠═════════════════════════
-║             💠 By : Vipro 💠
-║    〽️ line.me/ti/p/~gjxvipro 〽️
+║             💠 By : TEAM JAMS 💠
 ╚═════════════════════════
 """
 
@@ -143,11 +140,10 @@ groupMessage ="""
 ╠➩〘Getgroup image〙
 ╠➩〘Urlgroup Image〙
 ╠═════════════════════════
-║             💠 By : Vipro 💠
-║    〽️ line.me/ti/p/~gjxvipro 〽️
+║             💠 By : TEAM JAMS 💠
 ╚═════════════════════════
 """
-vip="u71402a1036eba2870235d58e3f948ee8"
+Jams="u71402a1036eba2870235d58e3f948ee8"
 
 setMessage ="""
 ╔═════════════════════════
@@ -162,8 +158,7 @@ setMessage ="""
 ╠➩〘Sticker on〙
 ╠➩〘Simisimi on/off〙
 ╠═════════════════════════
-║             💠 By : Vipro 💠
-║    〽️ line.me/ti/p/~gjxvipro 〽️
+║             💠 By : TEAM JAMS 💠
 ╚═════════════════════════
 """
 
@@ -181,8 +176,7 @@ creatorMessage ="""
 ╠➩〘Bot restart〙
 ╠➩〘Turn off〙
 ╠═════════════════════════
-║             💠 By : Vipro 💠
-║    〽️ line.me/ti/p/~gjxvipro 〽️
+║             💠 By : TEAM JAMS 💠
 ╚═════════════════════════
 """
 
@@ -199,7 +193,7 @@ adminMessage ="""
 ╠➩〘Clear ban〙
 ╠➩〘Kill〙
 ╠➩〘Kick @〙
-╠➩〘Set member: (Jumblah)〙
+╠➩〘Set member: (Jumlah)〙
 ╠➩〘Ban group: (NamaGroup〙
 ╠➩〘Del ban: (NamaGroup〙
 ╠➩〘List ban〙
@@ -222,8 +216,7 @@ adminMessage ="""
 ╠➩〘Respon3 on/off〙
 ╠➩〘Responkick on/off〙
 ╠═════════════════════════
-║             💠 By : Vipro 💠
-║    〽️ line.me/ti/p/~gjxvipro 〽️
+║             💠 By : TEAM JAMS 💠
 ╚═════════════════════════
 """
 
@@ -243,25 +236,24 @@ helpMessage ="""
 ╠➩〘Speed test〙
 ╠➩〘Status〙
 ╠═════════════════════════
-║             💠 By : Vipro 💠
-║    〽️ line.me/ti/p/~gjxvipro 〽️
+║             💠 By : TEAM JAMS 💠
 ╚═════════════════════════
 """
 
 
-KAC=[vipro]
-mid = vipro.getProfile().mid
+KAC=[jams]
+mid = jams.getProfile().mid
 Bots=[mid]
 Creator=["u71402a1036eba2870235d58e3f948ee8"]
 admin=["u71402a1036eba2870235d58e3f948ee8"]
 
-contact = vipro.getProfile()
-backup1 = vipro.getProfile()
+contact = jams.getProfile()
+backup1 = jams.getProfile()
 backup1.displayName = contact.displayName
 backup1.statusMessage = contact.statusMessage                        
 backup1.pictureStatus = contact.pictureStatus
 
-responsename = vipro.getProfile().displayName
+responsename = jams.getProfile().displayName
 
 
 wait = {
@@ -286,7 +278,7 @@ wait = {
     'sticker':False,  
     'timeline':True,
     "Timeline":True,
-    "comment":"Bot Auto Like ©By : Vipro\nContact Me : 👉 line.me/ti/p/~gjxvipro",    
+    "comment":"Auto Like ©By : TEAM JAMS\nContact Me : 👉 line.me/ti/p/~jameshakim",    
     "commentOn":True,
     "commentBlack":{},
     "message":"Thx For Add Me (^_^)\nInvite Me To Your Group ヘ(^_^)ヘ",    
@@ -527,7 +519,7 @@ def summon(to, nama):
     msg.contentMetadata ={'MENTION':'{"MENTIONEES":['+aa+']}','EMTVER':'4'}
     print "[Command] Tag All"
     try:
-       vipro.sendMessage(msg)
+       jams.sendMessage(msg)
     except Exception as error:
        print error          
                         
@@ -550,7 +542,7 @@ def bot(op):
               if(wait["message"]in[""," ","\n",None]):
                 pass
               else:
-                vipro.sendText(op.param1,str(wait["message"]))
+                jams.sendText(op.param1,str(wait["message"]))
 
 
         if op.type == 55:
@@ -580,7 +572,7 @@ def bot(op):
                 try:
                     if cctv['cyduk'][op.param1]==True:
                         if op.param1 in cctv['point']:
-                            Name = vipro.getContact(op.param2).displayName
+                            Name = jams.getContact(op.param2).displayName
 #                            Name = summon(op.param2)
                             if Name in cctv['sidermem'][op.param1]:
                                 pass
@@ -589,15 +581,15 @@ def bot(op):
                                 if " " in Name:
                                     nick = Name.split(' ')
                                     if len(nick) == 2:
-                                        vipro.sendText(op.param1, "Haii " + "☞ " + Name + " ☜" + "\nNgintip Aja Niih. . .\nChat Kek Idiih (-__-)   ")
+                                        jams.sendText(op.param1, "Haii " + "☞ " + Name + " ☜" + "\nNgintip Aja Niih. . .\nChat Kek Idiih (-__-)   ")
                                         time.sleep(0.2)
                                         summon(op.param1,[op.param2])
                                     else:
-                                        vipro.sendText(op.param1, "Haii " + "☞ " + Name + " ☜" + "\nBetah Banget Jadi Penonton. . .\nChat Napa (-__-)   ")
+                                        jams.sendText(op.param1, "Haii " + "☞ " + Name + " ☜" + "\nBetah Banget Jadi Penonton. . .\nChat Napa (-__-)   ")
                                         time.sleep(0.2)
                                         summon(op.param1,[op.param2])
                                 else:
-                                    vipro.sendText(op.param1, "Haii " + "☞ " + Name + " ☜" + "\nNgapain Kak Ngintip Aja???\nSini Gabung Chat...   ")
+                                    jams.sendText(op.param1, "Haii " + "☞ " + Name + " ☜" + "\nNgapain Kak Ngintip Aja???\nSini Gabung Chat...   ")
                                     time.sleep(0.2)
                                     summon(op.param1,[op.param2])
                         else:
@@ -612,49 +604,48 @@ def bot(op):
 	      
 
         if op.type == 22:
-            vipro.leaveRoom(op.param1)
+            jams.leaveRoom(op.param1)
 
         if op.type == 21:
-            vipro.leaveRoom(op.param1)
+            jams.leaveRoom(op.param1)
 
 
         if op.type == 13:
 	    print op.param3
             if op.param3 in mid:
 		if op.param2 in Creator:
-		    vipro.acceptGroupInvitation(op.param1)
+		    jams.acceptGroupInvitation(op.param1)
 
 		    
 	    if mid in op.param3:	        
                 if wait["AutoJoinCancel"] == True:
-		    G = vipro.getGroup(op.param1)
+		    G = jams.getGroup(op.param1)
                     if len(G.members) <= wait["memberscancel"]:
-                        vipro.acceptGroupInvitation(op.param1)
-                        vipro.sendText(op.param1,"Maaf " + vipro.getContact(op.param2).displayName + "\nMember Kurang Dari 30 Orang\nUntuk Info, Silahkan Chat Owner Kami!")
-                        vipro.leaveGroup(op.param1)                        
+                        jams.acceptGroupInvitation(op.param1)
+                        jams.sendText(op.param1,"Maaf " + jams.getContact(op.param2).displayName + "\nMember Kurang Dari 30 Orang\nUntuk Info, Silahkan Chat Owner Kami!")
+                        jams.leaveGroup(op.param1)                        
 		    else:
-                        vipro.acceptGroupInvitation(op.param1)
-			vipro.sendText(op.param1,"☆Ketik ☞Help☜ Untuk Bantuan☆\n☆Harap Gunakan Dengan Bijak ^_^ ☆")
-                        		    
+                        jams.acceptGroupInvitation(op.param1)
+			jams.sendText(op.param1,"☆")	    
  
 	    if mid in op.param3:
                 if wait["AutoJoin"] == True:
-		    G = vipro.getGroup(op.param1)
+		    G = jams.getGroup(op.param1)
                     if len(G.members) <= wait["Members"]:
-                        vipro.rejectGroupInvitation(op.param1)
+                        jams.rejectGroupInvitation(op.param1)
 		    else:
-                        vipro.acceptGroupInvitation(op.param1)
-			vipro.sendText(op.param1,"☆Ketik ☞Help☜ Untuk Bantuan☆\n☆Harap Gunakan Dengan Bijak ^_^ ☆")
+                        jams.acceptGroupInvitation(op.param1)
+			jams.sendText(op.param1,"☆")
 	    else:
                 if wait["AutoCancel"] == True:
 		    if op.param3 in Bots:
 			pass
 		    else:
-                        vipro.cancelGroupInvitation(op.param1, [op.param3])
+                        jams.cancelGroupInvitation(op.param1, [op.param3])
 		else:
 		    if op.param3 in wait["blacklist"]:
-			vipro.cancelGroupInvitation(op.param1, [op.param3])
-			vipro.sendText(op.param1, "Blacklist Detected")
+			jams.cancelGroupInvitation(op.param1, [op.param3])
+			jams.sendText(op.param1, "Blacklist Detected")
 		    else:
 			pass
 			
@@ -690,21 +681,21 @@ def bot(op):
 		           if op.param2 in Bots:
 		               pass
 		           else:
-		               vipro.kickoutFromGroup(op.param1,[op.param2])
+		               jams.kickoutFromGroup(op.param1,[op.param2])
 		               if op.param2 in wait["blacklist"]:
 		                   pass
 		        else:
-			    vipro.inviteIntoGroup(op.param1,[op.param3])
+			    jams.inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
 			    if op.param2 not in Creator:
 			        if op.param2 not in admin:
 			            if op.param2 not in Bots:
-                                        vipro.kickoutFromGroup(op.param1,[op.param2])
+                                        jams.kickoutFromGroup(op.param1,[op.param2])
 			    if op.param2 in wait["blacklist"]:
 			        pass
 			    else:
-			        vipro.inviteIntoGroup(op.param1,[op.param3])
+			        jams.inviteIntoGroup(op.param1,[op.param3])
 		        except:
 			    print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
                         if op.param2 in wait["blacklist"]:
@@ -734,11 +725,11 @@ def bot(op):
                       if op.param2 in Bots:
                         pass
                     try:
-                        vipro.kickoutFromGroup(op.param1,[op.param2])
-			vipro.kickoutFromGroup(op.param1,[op.param2])
+                        jams.kickoutFromGroup(op.param1,[op.param2])
+			jams.kickoutFromGroup(op.param1,[op.param2])
                     except:
                         try:
-			    vipro.kickoutFromGroup(op.param1,[op.param2])
+			    jams.kickoutFromGroup(op.param1,[op.param2])
                         except:
                             print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
                         if op.param2 in wait["blacklist"]:
@@ -760,16 +751,16 @@ def bot(op):
                     if op.param2 in Bots:
                         pass
                     try:
-                        vipro.kickoutFromGroup(op.param1,[op.param2])
-			vipro.kickoutFromGroup(op.param1,[op.param2])
+                        jams.kickoutFromGroup(op.param1,[op.param2])
+			jams.kickoutFromGroup(op.param1,[op.param2])
                     except:
                         try:
 			    if op.param2 not in Bots:
-                                vipro.kickoutFromGroup(op.param1,[op.param2])
+                                jams.kickoutFromGroup(op.param1,[op.param2])
 			    if op.param2 in wait["blacklist"]:
 			        pass
 			    else:
-			        vipro.inviteIntoGroup(op.param1,[op.param3])
+			        jams.inviteIntoGroup(op.param1,[op.param3])
                         except:
                             print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
                         if op.param2 in wait["blacklist"]:
@@ -778,7 +769,7 @@ def bot(op):
                             pass
                         else:
                             wait["blacklist"][op.param2] = True
-                    vipro.inviteIntoGroup(op.param1,[op.param3])
+                    jams.inviteIntoGroup(op.param1,[op.param3])
                     if op.param2 in wait["blacklist"]:
                         pass
                     if op.param2 in wait["whitelist"]:
@@ -794,7 +785,7 @@ def bot(op):
 		  if op.param2 in Bots:
 		   pass		
 		else:
-                    vipro.kickoutFromGroup(op.param1,[op.param2])
+                    jams.kickoutFromGroup(op.param1,[op.param2])
             else:
                 pass
 
@@ -803,33 +794,33 @@ def bot(op):
           if wait["Sambutan"] == True:
             if op.param2 in Creator:
                 return
-            ginfo = vipro.getGroup(op.param1)
-            contact = vipro.getContact(op.param2)
+            ginfo = jams.getGroup(op.param1)
+            contact = jams.getContact(op.param2)
             image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
-            vipro.sendText(op.param1,"Hallo " + vipro.getContact(op.param2).displayName + "\nWelcome To ☞ " + str(ginfo.name) + " ☜" + "\nBudayakan Cek Note\nDan Semoga Betah Disini ^_^")
+            jams.sendText(op.param1,"Hallo " + jams.getContact(op.param2).displayName + "\nWelcome To ☞ " + str(ginfo.name) + " ☜" + "\nBudayakan Cek Note\nDan Semoga Betah Disini ^_^")
             c = Message(to=op.param1, from_=None, text=None, contentType=13)
             c.contentMetadata={'mid':op.param2}
-            vipro.sendMessage(c)  
-            vipro.sendImageWithURL(op.param1,image)
+            jams.sendMessage(c)  
+            jams.sendImageWithURL(op.param1,image)
             d = Message(to=op.param1, from_=None, text=None, contentType=7)
             d.contentMetadata={
                                     "STKID": "13269548",
                                     "STKPKGID": "1329191",
                                     "STKVER": "1" }                
-            vipro.sendMessage(d)             
+            jams.sendMessage(d)             
             print "MEMBER JOIN TO GROUP"
 
         if op.type == 15:
           if wait["Sambutan"] == True:
             if op.param2 in Creator:
                 return
-            vipro.sendText(op.param1,"Good Bye " + vipro.getContact(op.param2).displayName +  "\nSee You Next Time . . . (p′︵‵。) 🤗")
+            jams.sendText(op.param1,"Ikhhhhhh Baperan " + jams.getContact(op.param2).displayName +  "\nSee You Next Time . . . (p′︵‵。) 🤗")
             d = Message(to=op.param1, from_=None, text=None, contentType=7)
             d.contentMetadata={
                                     "STKID": "13269542",
                                     "STKPKGID": "1329191",
                                     "STKVER": "1" }                
-            vipro.sendMessage(d)                  
+            jams.sendMessage(d)                  
             print "MEMBER HAS LEFT THE GROUP"
             
         if op.type == 26:
@@ -850,7 +841,7 @@ def bot(op):
                         data = json.loads(data)
                         if data['status'] == 200:
                             if data['result']['result'] == 100:
-                                vipro.sendText(msg.to,data['result']['response'].encode('utf-8'))
+                                jams.sendText(msg.to,data['result']['response'].encode('utf-8'))
 
             if 'MENTION' in msg.contentMetadata.keys() != None:
                  if wait["kickMention"] == True:
@@ -863,13 +854,13 @@ def bot(op):
                      mentionees = mention['MENTIONEES']
                      for mention in mentionees:
                            if mention['M'] in Bots:
-                                  vipro.sendText(msg.to,ret_)
-                                  vipro.kickoutFromGroup(msg.to,[msg.from_])
+                                  jams.sendText(msg.to,ret_)
+                                  jams.kickoutFromGroup(msg.to,[msg.from_])
                                   break                              
                               
             if 'MENTION' in msg.contentMetadata.keys() != None:
                  if wait["detectMention"] == True:
-                     contact = vipro.getContact(msg.from_)
+                     contact = jams.getContact(msg.from_)
                      cName = contact.displayName
                      balas = ["Dont Tag!! Lagi Sibuk",cName + " Ngapain Ngetag?",cName + " Nggak Usah Tag-Tag! Kalo Penting Langsung Pc Aja","Dia Lagi Off", cName + " Kenapa Tag Saya?","Dia Lagi Tidur\nJangan Di Tag " + cName, "Jangan Suka Tag Gua " + cName, "Kamu Siapa " + cName + "?", "Ada Perlu Apa " + cName + "?","Woii " + cName + " Jangan Ngetag, Riibut!"]
                      ret_ = random.choice(balas)
@@ -878,12 +869,12 @@ def bot(op):
                      mentionees = mention['MENTIONEES']
                      for mention in mentionees:
                            if mention['M'] in Bots:
-                                  vipro.sendText(msg.to,ret_)
+                                  jams.sendText(msg.to,ret_)
                                   break   
                               
             if 'MENTION' in msg.contentMetadata.keys() != None:
                  if wait["detectMention2"] == True:          
-                    contact = vipro.getContact(msg.from_)
+                    contact = jams.getContact(msg.from_)
                     cName = contact.displayName
                     balas = ["Sekali lagi nge tag gw sumpahin jomblo seumur hidup!","Nggak Usah Tag-Tag! Kalo Penting Langsung Pc Aja","Woii " + cName + " Jangan Ngetag, Riibut!"]
                     ret_ = random.choice(balas)
@@ -892,19 +883,19 @@ def bot(op):
                     mentionees = mention['MENTIONEES']
                     for mention in mentionees:
                            if mention['M'] in Bots:
-                                  vipro.sendText(msg.to,ret_)
+                                  jams.sendText(msg.to,ret_)
                                   msg.contentType = 7   
                                   msg.text = None
                                   msg.contentMetadata = {
                                                        "STKID": "20001316",
                                                        "STKPKGID": "1582380",
                                                        "STKVER": "1" }
-                                  vipro.sendMessage(msg)                                
+                                  jams.sendMessage(msg)                                
                                   break
                               
             if 'MENTION' in msg.contentMetadata.keys() != None:
                  if wait["detectMention3"] == True:          
-                    contact = vipro.getContact(msg.from_)
+                    contact = jams.getContact(msg.from_)
                     cName = contact.displayName
                     balas = ["Woii " + cName + ", Dasar Jones Ngetag Mulu!"]
                     balas1 = "Ini Foto Sii Jones Yang Suka Ngetag. . ."
@@ -915,27 +906,27 @@ def bot(op):
                     mentionees = mention['MENTIONEES']
                     for mention in mentionees:
                            if mention['M'] in Bots:
-                                  vipro.sendText(msg.to,ret_)
-                                  vipro.sendText(msg.to,balas1)
-                                  vipro.sendImageWithURL(msg.to,image)
+                                  jams.sendText(msg.to,ret_)
+                                  jams.sendText(msg.to,balas1)
+                                  jams.sendImageWithURL(msg.to,image)
                                   msg.contentType = 7   
                                   msg.text = None
                                   msg.contentMetadata = {
                                                        "STKID": "11764508",
                                                        "STKPKGID": "6641",
                                                        "STKVER": "1" }
-                                  vipro.sendMessage(msg)                                
+                                  jams.sendMessage(msg)                                
                                   break  
                                   
         if op.type == 25:
             msg = op.message                                  
                               
-            if msg.text in ["Bot on"]:
-                wait["Bot"] = True
-                vipro.sendText(msg.to,"Bot Sudah On Kembali.")  
+            if msg.text in ["Jams on"]:
+                wait["Jams"] = True
+                jams.sendText(msg.to," Jams Sudah On.")  
 
         if op.type == 25:
-          if wait["Bot"] == True:    
+          if wait["Jams"] == True:    
             msg = op.message
             
             
@@ -946,24 +937,24 @@ def bot(op):
                 stk_ver = msg.contentMetadata['STKVER']
                 pkg_id = msg.contentMetadata['STKPKGID']
                 filler = "『 Sticker Check 』\nSTKID : %s\nSTKPKGID : %s\nSTKVER : %s\n『 Link 』\nline://shop/detail/%s" % (stk_id,pkg_id,stk_ver,pkg_id)
-                vipro.sendText(msg.to, filler)
+                jams.sendText(msg.to, filler)
                 wait["sticker"] = False
             else:
                 pass              
 
             if wait["alwaysRead"] == True:
                 if msg.toType == 0:
-                    vipro.sendChatChecked(msg.from_,msg.id)
+                    jams.sendChatChecked(msg.from_,msg.id)
                 else:
-                    vipro.sendChatChecked(msg.to,msg.id)
+                    jams.sendChatChecked(msg.to,msg.id)
                     
                     
             if msg.contentType == 16:
                 if wait['likeOn'] == True:
                      url = msg.contentMetadata["postEndUrl"]
-                     vipro.like(url[25:58], url[66:], likeType=1005)
-                     vipro.comment(url[25:58], url[66:], wait["comment"])
-                     vipro.sendText(msg.to,"Like Success")                     
+                     jams.like(url[25:58], url[66:], likeType=1005)
+                     jams.comment(url[25:58], url[66:], wait["comment"])
+                     jams.sendText(msg.to,"Like Success")                     
                      wait['likeOn'] = False
 
 
@@ -971,51 +962,51 @@ def bot(op):
                 if wait["wblacklist"] == True:
 		    if msg.contentMetadata["mid"] not in admin:
                         if msg.contentMetadata["mid"] in wait["blacklist"]:
-                            vipro.sendText(msg.to,"Sudah")
+                            jams.sendText(msg.to,"Sudah")
                             wait["wblacklist"] = False
                         else:
                             wait["blacklist"][msg.contentMetadata["mid"]] = True
                             wait["wblacklist"] = False
-                            vipro.sendText(msg.to,"Ditambahkan")
+                            jams.sendText(msg.to,"Ditambahkan")
 		    else:
-			vipro.sendText(msg.to,"Admin Detected~")
+			jams.sendText(msg.to,"Admin Detected~")
 			
 
                 elif wait["dblacklist"] == True:
                     if msg.contentMetadata["mid"] in wait["blacklist"]:
                         del wait["blacklist"][msg.contentMetadata["mid"]]
-                        vipro.sendText(msg.to,"Terhapus")
+                        jams.sendText(msg.to,"Terhapus")
                         wait["dblacklist"] = False
 
                     else:
                         wait["dblacklist"] = False
-                        vipro.sendText(msg.to,"Tidak Ada Black List")
+                        jams.sendText(msg.to,"Tidak Ada Black List")
             
                     
  
                 elif wait["Contact"] == True:
                      msg.contentType = 0
-                     vipro.sendText(msg.to,msg.contentMetadata["mid"])
+                     jams.sendText(msg.to,msg.contentMetadata["mid"])
                      if 'displayName' in msg.contentMetadata:
-                         contact = vipro.getContact(msg.contentMetadata["mid"])
+                         contact = jams.getContact(msg.contentMetadata["mid"])
                          try:
-                             cu = vipro.channel.getCover(msg.contentMetadata["mid"])
+                             cu = jams.channel.getCover(msg.contentMetadata["mid"])
                          except:
                              cu = ""
-                         vipro.sendText(msg.to,"Nama:\n" + msg.contentMetadata["displayName"] + "\n\nMid:\n" + msg.contentMetadata["mid"] + "\n\nStatus:\n" + contact.statusMessage + "\n\nPhoto Profile:\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\n\nPhoto Cover:\n" + str(cu))
+                         jams.sendText(msg.to,"Nama:\n" + msg.contentMetadata["displayName"] + "\n\nMid:\n" + msg.contentMetadata["mid"] + "\n\nStatus:\n" + contact.statusMessage + "\n\nPhoto Profile:\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\n\nPhoto Cover:\n" + str(cu))
                      else:
-                         contact = vipro.getContact(msg.contentMetadata["mid"])
+                         contact = jams.getContact(msg.contentMetadata["mid"])
                          try:
-                             cu = vipro.channel.getCover(msg.contentMetadata["mid"])
+                             cu = jams.channel.getCover(msg.contentMetadata["mid"])
                          except:
                              cu = ""
-                         vipro.sendText(msg.to,"Nama:\n" + msg.contentMetadata["displayName"] + "\n\nMid:\n" + msg.contentMetadata["mid"] + "\n\nStatus:\n" + contact.statusMessage + "\n\nPhoto Profile:\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\n\nPhoto Cover:\n" + str(cu))
+                         jams.sendText(msg.to,"Nama:\n" + msg.contentMetadata["displayName"] + "\n\nMid:\n" + msg.contentMetadata["mid"] + "\n\nStatus:\n" + contact.statusMessage + "\n\nPhoto Profile:\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\n\nPhoto Cover:\n" + str(cu))
 
 
  
             elif msg.text == "Ginfo":
                 if msg.toType == 2:
-                    ginfo = vipro.getGroup(msg.to)
+                    ginfo = jams.getGroup(msg.to)
                     try:
                         gCreator = ginfo.creator.displayName
                     except:
@@ -1029,14 +1020,14 @@ def bot(op):
                             u = "close"
                         else:
                             u = "open"
-                        vipro.sendText(msg.to,"[Group name]\n" + str(ginfo.name) + "\n\n[Gid]\n" + msg.to + "\n\n[Group creator]\n" + gCreator + "\n\n[Profile status]\nhttp://dl.profile.line.naver.jp/" + ginfo.pictureStatus + "\n\nMembers:" + str(len(ginfo.members)) + "members\nPending:" + sinvitee + "people\nURL:" + u + "it is inside")
+                        jams.sendText(msg.to,"[Group name]\n" + str(ginfo.name) + "\n\n[Gid]\n" + msg.to + "\n\n[Group creator]\n" + gCreator + "\n\n[Profile status]\nhttp://dl.profile.line.naver.jp/" + ginfo.pictureStatus + "\n\nMembers:" + str(len(ginfo.members)) + "members\nPending:" + sinvitee + "people\nURL:" + u + "it is inside")
                     else:
-                        vipro.sendText(msg.to,"[group name]\n" + str(ginfo.name) + "\n[gid]\n" + msg.to + "\n[group creator]\n" + gCreator + "\n[profile status]\nhttp://dl.profile.line.naver.jp/" + ginfo.pictureStatus)
+                        jams.sendText(msg.to,"[group name]\n" + str(ginfo.name) + "\n[gid]\n" + msg.to + "\n[group creator]\n" + gCreator + "\n[profile status]\nhttp://dl.profile.line.naver.jp/" + ginfo.pictureStatus)
                 else:
                     if wait["lang"] == "JP":
-                        vipro.sendText(msg.to,"Can not be used outside the group")
+                        jams.sendText(msg.to,"Can not be used outside the group")
                     else:
-                        vipro.sendText(msg.to,"Not for use less than group")
+                        jams.sendText(msg.to,"Not for use less than group")
                         
 
  
@@ -1046,18 +1037,18 @@ def bot(op):
             elif msg.text in ["Creator","Owner"]:
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': tjia}
-                vipro.sendMessage(msg)
-		vipro.sendText(msg.to,"Itu Majikan Kami (^_^)")
+                jams.sendMessage(msg)
+		jams.sendText(msg.to,"Itu owner Kami (^_^)")
 
  
 
 	    elif msg.text in ["Group creator","Gcreator","gcreator"]:
-		ginfo = vipro.getGroup(msg.to)
+		ginfo = jams.getGroup(msg.to)
 		gCreator = ginfo.creator.mid
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': gCreator}
-                vipro.sendMessage(msg)
-		vipro.sendText(msg.to,"Itu Yang Buat Grup Ini")
+                jams.sendMessage(msg)
+		jams.sendText(msg.to,"Itu Yang Buat Grup Ini")
  
 
                 
@@ -1065,14 +1056,14 @@ def bot(op):
                 if wait["Timeline"] == True:
                     msg.contentType = 0
                     msg.text = "post URL\n" + msg.contentMetadata["postEndUrl"]
-                    vipro.sendText(msg.to,msg.text)
+                    jams.sendText(msg.to,msg.text)
 
             
             if msg.contentType == 13:
                 if wait["steal"] == True:
                     _name = msg.contentMetadata["displayName"]
                     copy = msg.contentMetadata["mid"]
-                    groups = vipro.getGroup(msg.to)
+                    groups = jams.getGroup(msg.to)
                     pending = groups.invitee
                     targets = []
                     for s in groups.members:
@@ -1086,21 +1077,21 @@ def bot(op):
                     else:
                         for target in targets:
                             try:
-                                vipro.findAndAddContactsByMid(target)
+                                jams.findAndAddContactsByMid(target)
                                 contact = vipro.getContact(target)
-                                cu = vipro.channel.getCover(target)
+                                cu = jams.channel.getCover(target)
                                 path = str(cu)
                                 image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
-                                vipro.sendText(msg.to,"Nama :\n" + contact.displayName + "\n\nMid :\n" + msg.contentMetadata["mid"] + "\n\nBio :\n" + contact.statusMessage)
-                                vipro.sendText(msg.to,"Profile Picture " + contact.displayName)
-                                vipro.sendImageWithURL(msg.to,image)
-                                vipro.sendText(msg.to,"Cover " + contact.displayName)
-                                vipro.sendImageWithURL(msg.to,path)
+                                jams.sendText(msg.to,"Nama :\n" + contact.displayName + "\n\nMid :\n" + msg.contentMetadata["mid"] + "\n\nBio :\n" + contact.statusMessage)
+                                jams.sendText(msg.to,"Profile Picture " + contact.displayName)
+                                jams.sendImageWithURL(msg.to,image)
+                                jams.sendText(msg.to,"Cover " + contact.displayName)
+                                jams.sendImageWithURL(msg.to,path)
                                 wait["steal"] = False
                                 break
                             except:
                                     pass
-
+#_________________________________________________________
 
             if msg.contentType == 13:
                 if wait["gift"] == True:
