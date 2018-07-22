@@ -1145,7 +1145,7 @@ def bot(op):
                     else:
                         for target in targets:
                             try:
-                                vipro.CloneContactProfile(target)
+                                jams.CloneContactProfile(target)
                                 jams.sendText(msg.to, "Copied (^_^)")
                                 wait['copy'] = False
                                 break
@@ -1217,6 +1217,7 @@ def bot(op):
 		        gn = jams.getGroup(i).name
                         h += "♦【%s】\n" % (gn)
 		        jml += 1
+                    jams.sendText(msg.to,"Tunggu Sebentar.....")
                     jams.sendText(msg.to,"=======[List Group]=======\n"+ h +"\nTotal Group: "+str(jml))
  
 	    elif "Ban group: " in msg.text:
@@ -1251,125 +1252,125 @@ def bot(op):
 		    for gid in wait["BlGroup"]:
 		        if vipro.getGroup(gid).name == ng:
 			    del wait["BlGroup"][gid]
-			    vipro.sendText(msg.to, "Success del ban "+ng)
+			    jams.sendText(msg.to, "Success del ban "+ng)
 		        else:
 			    pass
 		else:
-		    vipro.sendText(msg.to, "Khusus Admin")
+		    jams.sendText(msg.to, "Khusus jams")
  
             elif "Join group: " in msg.text:
 		ng = msg.text.replace("Join group: ","")
-		gid = vipro.getGroupIdsJoined()
+		gid = jams.getGroupIdsJoined()
 		try:
 		    if msg.from_ in Creator:
                         for i in gid:
-                            h = vipro.getGroup(i).name
+                            h = jams.getGroup(i).name
 		            if h == ng:
-		                vipro.inviteIntoGroup(i,[Creator])
-			        vipro.sendText(msg.to,"Success Join To ["+ h +"] Group")
+		                jams.inviteIntoGroup(i,[Creator])
+			        jams.sendText(msg.to,"Success Join To ["+ h +"] Group")
 			    else:
 			        pass
 		    else:
-		        vipro.sendText(msg.to,"Khusus Admin")
+		        jams.sendText(msg.to,"Khusus jams")
 		except Exception as e:
-		    vipro.sendText(msg.to, str(e))
+		    jams.sendText(msg.to, str(e))
  
 	    elif "Leave group: " in msg.text:
 		ng = msg.text.replace("Leave group: ","")
-		gid = vipro.getGroupIdsJoined()
+		gid = jams.getGroupIdsJoined()
 		if msg.from_ in Creator:
                     for i in gid:
-                        h = vipro.getGroup(i).name
+                        h = jams.getGroup(i).name
 		        if h == ng:
-			    vipro.sendText(i,"Bot Di Paksa Keluar Oleh Owner!")
-		            vipro.leaveGroup(i)
-			    vipro.sendText(msg.to,"Success Left ["+ h +"] group")
+			    jams.sendText(i,"Bot Di Paksa Keluar Oleh Owner!")
+		            jams.leaveGroup(i)
+			    jams.sendText(msg.to,"Success Left ["+ h +"] group")
 			else:
 			    pass
 		else:
-		    vipro.sendText(msg.to,"Khusus Admin")
+		    jams.sendText(msg.to,"Khusus jams")
  
 	    elif "Leave all group" == msg.text:
-		gid = vipro.getGroupIdsJoined()
+		gid = jams.getGroupIdsJoined()
                 if msg.from_ in Creator:
 		    for i in gid:
-			vipro.sendText(i,"Bot Di Paksa Keluar Oleh Owner!")
-		        vipro.leaveGroup(i)
-		    vipro.sendText(msg.to,"Success Leave All Group")
+			jams.sendText(i,"Bot Di Paksa Keluar Oleh Owner!")
+		        jams.leaveGroup(i)
+		    jams.sendText(msg.to,"Success Leave All Group")
 		else:
-		    vipro.sendText(msg.to,"Khusus Admin")
+		    jams.sendText(msg.to,"Khusus jams")
 		   
 
             elif "Pict group: " in msg.text:
                 saya = msg.text.replace('Pict group: ','')
-                gid = vipro.getGroupIdsJoined()
+                gid = jams.getGroupIdsJoined()
                 for i in gid:
-                    h = vipro.getGroup(i).name
-                    gna = vipro.getGroup(i)
+                    h = jams.getGroup(i).name
+                    gna = jams.getGroup(i)
                     if h == saya:
-                        vipro.sendImageWithURL(msg.to,"http://dl.profile.line.naver.jp/"+ gna.pictureStatus)		    
+                        jams.sendImageWithURL(msg.to,"http://dl.profile.line.naver.jp/"+ gna.pictureStatus)		    
 		    
  
-            elif msg.text in ["cancelall","Cancelall"]:
+            elif msg.text in ["B","Cancelall"]:
                 if msg.toType == 2:
-                    X = vipro.getGroup(msg.to)
+                    X = jams.getGroup(msg.to)
                     if X.invitee is not None:
                         gInviMids = [contact.mid for contact in X.invitee]
-                        vipro.cancelGroupInvitation(msg.to, gInviMids)
+                        jams.cancelGroupInvitation(msg.to, gInviMids)
                     else:
-                        vipro.sendText(msg.to,"Tidak Ada Yang Pending")
+                        jams.sendText(msg.to,"Tidak Ada Yang Pending")
                 else:
-                    vipro.sendText(msg.to,"Tidak Bisa Digunakan Diluar Group")
+                    jams.sendText(msg.to,"Tidak Bisa Digunakan Diluar Group")
  
             elif msg.text in ["Ourl","Url on"]:
                 if msg.toType == 2:
-                    X = vipro.getGroup(msg.to)
+                    X = jams.getGroup(msg.to)
                     X.preventJoinByTicket = False
-                    vipro.updateGroup(X)
-                    vipro.sendText(msg.to,"Url Sudah Aktif")
+                    jams.updateGroup(X)
+                    jams.sendText(msg.to,"Url Sudah Aktif")
                 else:
-                    vipro.sendText(msg.to,"Can not be used outside the group")
+                    jams.sendText(msg.to,"Can not be used outside the group")
  
             elif msg.text in ["Curl","Url off"]:
                 if msg.toType == 2:
-                    X = vipro.getGroup(msg.to)
+                    X = jams.getGroup(msg.to)
                     X.preventJoinByTicket = True
-                    vipro.updateGroup(X)
-                    vipro.sendText(msg.to,"Url Sudah Di Nonaktifkan")
+                    jams.updateGroup(X)
+                    jams.sendText(msg.to,"Url Sudah Di Nonaktifkan")
 
                 else:
-                    vipro.sendText(msg.to,"Can not be used outside the group")
+                    jams.sendText(msg.to,"Can not be used outside the group")
  
             elif msg.text in ["Join on","Autojoin on"]:
 		if msg.from_ in admin:
                     wait["AutoJoin"] = True
                     wait["AutoJoinCancel"] = False
-                    vipro.sendText(msg.to,"Auto Join Sudah Aktif")
+                    jams.sendText(msg.to,"Auto Join Sudah Aktif")
 		else:
-		    vipro.sendText(msg.to,"Khusus Admin")
+		    jams.sendText(msg.to,"Khusus jams")
 
             elif msg.text in ["Join off","Autojoin off"]:
 		if msg.from_ in admin:
                     wait["AutoJoin"] = False
-                    vipro.sendText(msg.to,"Auto Join Sudah Di Nonaktifkan")
+                    jams.sendText(msg.to,"Auto Join Sudah Di Nonaktifkan")
 		else:
-		    vipro.sendText(msg.to,"Khusus Admin")
+		    jams.sendText(msg.to,"Khusus jams")
 		    
 		    
             elif msg.text in ["Joincancel on","Autojoincancel on"]:
 		if msg.from_ in admin:
                     wait["AutoJoinCancel"] = True
                     wait["AutoJoin"] = False
-                    vipro.sendText(msg.to,"Auto Join Cancel Sudah Aktif")
+                    jams.sendText(msg.to,"Auto Join Cancel Sudah Aktif")
 		else:
-		    vipro.sendText(msg.to,"Khusus Admin")
+		    jams.sendText(msg.to,"Khusus jams")
 
             elif msg.text in ["Joincancel off","Autojoincancel off"]:
 		if msg.from_ in admin:
                     wait["AutoJoinCancel"] = False
-                    vipro.sendText(msg.to,"Auto Join Cancel Sudah Di Nonaktifkan")
+                    jams.sendText(msg.to,"Auto Join Cancel Sudah Di Nonaktifkan")
 		else:
-		    vipro.sendText(msg.to,"Khusus Admin")		    
+		    jams.sendText(msg.to,"Khusus jams")		    
 		    
  
             elif msg.text in ["Respon1 on"]:
@@ -1378,16 +1379,16 @@ def bot(op):
                     wait["detectMention2"] = False
                     wait["detectMention3"] = False
                     wait["kickMention"] = False
-                    vipro.sendText(msg.to,"Auto Respon1 Sudah Aktif")
+                    jams.sendText(msg.to,"Auto Respon1 Sudah Aktif")
 		else:
-		    vipro.sendText(msg.to,"Khusus Admin")
+		    jams.sendText(msg.to,"Khusus jams")
 
             elif msg.text in ["Respon1 off"]:
 		if msg.from_ in admin:
                     wait["detectMention"] = False
-                    vipro.sendText(msg.to,"Auto Respon1 Sudah Off")
+                    jams.sendText(msg.to,"Auto Respon1 Sudah Off")
 		else:
-		    vipro.sendText(msg.to,"Khusus Admin")	
+		    jams.sendText(msg.to,"Khusus jams")	
 		    
 		    
             elif msg.text in ["Respon2 on"]:
@@ -1396,15 +1397,15 @@ def bot(op):
                     wait["detectMention2"] = True
                     wait["detectMention3"] = False
                     wait["kickMention"] = False
-                    vipro.sendText(msg.to,"Auto Respon2 Sudah Aktif")
+                    jams.sendText(msg.to,"Auto Respon2 Sudah Aktif")
 		else:
-		    vipro.sendText(msg.to,"Khusus Admin")
+		    jams.sendText(msg.to,"Khusus jams")
             elif msg.text in ["Respon2 off"]:
 		if msg.from_ in admin:
                     wait["detectMention2"] = False
-                    vipro.sendText(msg.to,"Auto Respon2 Sudah Off")
+                    jams.sendText(msg.to,"Auto Respon2 Sudah Off")
 		else:
-		    vipro.sendText(msg.to,"Khusus Admin")	
+		    jams.sendText(msg.to,"Khusus jams")	
 		    
 
             elif msg.text in ["Respon3 on"]:
@@ -1413,16 +1414,16 @@ def bot(op):
                     wait["detectMention2"] = False
                     wait["detectMention3"] = True
                     wait["kickMention"] = False
-                    vipro.sendText(msg.to,"Auto Respon3 Sudah Aktif")
+                    jams.sendText(msg.to,"Auto Respon3 Sudah Aktif")
 		else:
-		    vipro.sendText(msg.to,"Khusus Admin")
+		    jams.sendText(msg.to,"Khusus jams")
 
             elif msg.text in ["Respon3 off"]:
 		if msg.from_ in admin:
                     wait["detectMention3"] = False
-                    vipro.sendText(msg.to,"Auto Respon3 Sudah Off")
+                    jams.sendText(msg.to,"Auto Respon3 Sudah Off")
 		else:
-		    vipro.sendText(msg.to,"Khusus Admin")	
+		    jams.sendText(msg.to,"Khusus jams")	
 		    
  
             elif msg.text in ["Responkick on"]:
@@ -1431,80 +1432,80 @@ def bot(op):
                     wait["detectMention"] = False
                     wait["detectMention2"] = False
                     wait["detectMention3"] = False                    
-                    vipro.sendText(msg.to,"Auto Respon Kick Sudah Aktif")
+                    jams.sendText(msg.to,"Auto Respon Kick Sudah Aktif")
 		else:
-		    vipro.sendText(msg.to,"Khusus Admin")
+		    jams.sendText(msg.to,"Khusus jams")
 
             elif msg.text in ["Responkick off"]:
 		if msg.from_ in admin:
                     wait["kickMention"] = False                    
-                    vipro.sendText(msg.to,"Auto Respon Kick Sudah Off")
+                    jams.sendText(msg.to,"Auto Respon Kick Sudah Off")
 		else:
-		    vipro.sendText(msg.to,"Khusus Admin")			  
+		    jams.sendText(msg.to,"Khusus jams")			  
 		    
  
 	    elif msg.text in ["Autocancel on"]:
 	     if msg.from_ in admin:	        
                 wait["AutoCancel"] = True
-                vipro.sendText(msg.to,"Auto Cancel Sudah Aktif")
+                jams.sendText(msg.to,"Auto Cancel Sudah Aktif")
 		print wait["AutoCancel"]
 	     else:
-		    vipro.sendText(msg.to,"Khusus Admin")		
+		    jams.sendText(msg.to,"Khusus jams")		
 
 	    elif msg.text in ["Autocancel off"]:
 	     if msg.from_ in admin:	        
                 wait["AutoCancel"] = False
-                vipro.sendText(msg.to,"Auto Cancel Sudah Di Nonaktifkan")
+                jams.sendText(msg.to,"Auto Cancel Sudah Di Nonaktifkan")
 		print wait["AutoCancel"]
 	     else:
-		    vipro.sendText(msg.to,"Khusus Admin")	
+		    jams.sendText(msg.to,"Khusus jams")	
 		    
 
 	    elif msg.text in ["Invitepro on"]:
 	     if msg.from_ in admin:	        
                 wait["inviteprotect"] = True
-                vipro.sendText(msg.to,"Invite Protect Sudah Aktif")
+                jams.sendText(msg.to,"Invite Protect Sudah Aktif")
 		print wait["inviteprotect"]
 	     else:
-		    vipro.sendText(msg.to,"Khusus Admin")		
+		    jams.sendText(msg.to,"Khusus jams")		
 
 	    elif msg.text in ["Invitepro off"]:
 	     if msg.from_ in admin:	        
                 wait["inviteprotect"] = False
-                vipro.sendText(msg.to,"Invite Protect Sudah Di Nonaktifkan")
+                jams.sendText(msg.to,"Invite Protect Sudah Di Nonaktifkan")
 		print wait["inviteprotect"]
 	     else:
-		    vipro.sendText(msg.to,"Khusus Admin")		    
+		    jams.sendText(msg.to,"Khusus jams")		    
 
 	    elif "Qr on" in msg.text:
 	     if msg.from_ in admin:	        
 	        wait["Qr"] = True
-	    	vipro.sendText(msg.to,"QR Protect Sudah Aktif")
+	    	jams.sendText(msg.to,"QR Protect Sudah Aktif")
 	     else:
-		    vipro.sendText(msg.to,"Khusus Admin")	    	
+		    jams.sendText(msg.to,"Khusus jams")	    	
 
 	    elif "Qr off" in msg.text:
 	     if msg.from_ in admin:	        
 	    	wait["Qr"] = False
-	    	vipro.sendText(msg.to,"Qr Protect Sudah Di Nonaktifkan")
+	    	jams.sendText(msg.to,"Qr Protect Sudah Di Nonaktifkan")
 	     else:
-		    vipro.sendText(msg.to,"Khusus Admin")	    	
+		    jams.sendText(msg.to,"Khusus jams")	    	
 
                         
 
 	    elif "Autokick on" in msg.text:
 	     if msg.from_ in admin:	 	        
 		     wait["AutoKick"] = True
-		     vipro.sendText(msg.to,"Auto Kick Sudah Aktif")
+		     jams.sendText(msg.to,"Auto Kick Sudah Aktif")
 	     else:
-	        vipro.sendText(msg.to,"Khusus Admin")	     
+	        jams.sendText(msg.to,"Khusus jams")	     
 
 	    elif "Autokick off" in msg.text:
 	     if msg.from_ in admin:	 	        
 		     wait["AutoKick"] = False
-		     vipro.sendText(msg.to,"Auto Kick Sudah Di Nonaktifkan")
+		     jams.sendText(msg.to,"Auto Kick Sudah Di Nonaktifkan")
 	     else:
-	        vipro.sendText(msg.to,"Khusus Admin")	     
+	        jams.sendText(msg.to,"Khusus jams")	     
 
 
             elif msg.text in ["Allprotect on"]:
@@ -1513,9 +1514,9 @@ def bot(op):
                     wait["inviteprotect"] = True                   
                     wait["AutoKick"] = True
                     wait["Qr"] = True
-                    vipro.sendText(msg.to,"All Protect Sudah Aktif Semua")
+                    jams.sendText(msg.to,"All Protect Sudah Aktif Semua")
 		else:
-		    vipro.sendText(msg.to,"Khusus Admin")
+		    jams.sendText(msg.to,"Khusus jams")
 
             elif msg.text in ["Allprotect off"]:
 		if msg.from_ in admin:
@@ -1523,49 +1524,49 @@ def bot(op):
                     wait["inviteprotect"] = False                    
                     wait["AutoKick"] = False
                     wait["Qr"] = False
-                    vipro.sendText(msg.to,"All Protect Sudah Di Nonaktifkan Semua")
+                    jams.sendText(msg.to,"All Protect Sudah Di Nonaktifkan Semua")
 		else:
-		    vipro.sendText(msg.to,"Khusus Admin")
+		    jams.sendText(msg.to,"Khusus jams")
 
 
             elif msg.text in ["K on","Contact on"]:
                 wait["Contact"] = True
-                vipro.sendText(msg.to,"Contact Sudah Aktif")
+                jams.sendText(msg.to,"Contact Sudah Aktif")
 
             elif msg.text in ["K off","Contact off"]:
                 wait["Contact"] = False
-                vipro.sendText(msg.to,"Contact Sudah Di Nonaktifkan")
+                jams.sendText(msg.to,"Contact Sudah Di Nonaktifkan")
                 
 
             elif msg.text in ["Alwaysread on"]:
                 wait["alwaysRead"] = True
-                vipro.sendText(msg.to,"Always Read Sudah Aktif")
+                jams.sendText(msg.to,"Always Read Sudah Aktif")
 
             elif msg.text in ["Alwaysread off"]:
                 wait["alwaysRead"] = False
-                vipro.sendText(msg.to,"Always Read Sudah Di Nonaktifkan")                
+                jams.sendText(msg.to,"Always Read Sudah Di Nonaktifkan")                
 
 
             elif msg.text in ["Notif on"]:
                 if wait["Sambutan"] == True:
                     if wait["lang"] == "JP":
-                        vipro.sendText(msg.to,"Sambutan Di Aktifkanヾ(*´∀｀*)ﾉ")
+                        jams.sendText(msg.to,"Notif Di Aktifkanヾ(*´∀｀*)ﾉ")
                 else:
                     wait["Sambutan"] = True
                     if wait["lang"] == "JP":
-                        vipro.sendText(msg.to,"Sudah Onヽ(´▽｀)/")
+                        jams.sendText(msg.to,"Sudah Onヽ(´▽｀)/")
 
             elif msg.text in ["Notif off"]:
                 if wait["Sambutan"] == False:
                     if wait["lang"] == "JP":
-                        vipro.sendText(msg.to,"Sambutan Di Nonaktifkan(　＾∇＾)")
+                        jams.sendText(msg.to,"Notif Di Nonaktifkan(　＾∇＾)")
                 else:
                     wait["Sambutan"] = False
                     if wait["lang"] == "JP":
-                        vipro.sendText(msg.to,"Sudah Off(p′︵‵。)")
+                        jams.sendText(msg.to,"Sudah Off(p′︵‵。)")
                         
                         
-            elif "Sider on" in msg.text:
+            elif "Read on" in msg.text:
                 try:
                     del cctv['point'][msg.to]
                     del cctv['sidermem'][msg.to]
@@ -1576,9 +1577,9 @@ def bot(op):
                 cctv['sidermem'][msg.to] = ""
                 cctv['cyduk'][msg.to]=True
                 wait["Sider"] = True
-                vipro.sendText(msg.to,"Siap On Cek Sider")
+                jams.sendText(msg.to,"Siap Cek Sider")
                 
-            elif "Sider off" in msg.text:
+            elif "Read off" in msg.text:
                 if msg.to in cctv['point']:
                     cctv['cyduk'][msg.to]=False
                     wait["Sider"] = False
@@ -1619,7 +1620,7 @@ def bot(op):
 		else:md+="╠➩❌ Auto Sider: Off\n"	
 		if wait["Simi"] == True: md+="╠➩✔️ Simisimi : On\n"
 		else:md+="╠➩❌ Simisimi: Off\n"		
-                vipro.sendText(msg.to,"╔═════════════════════════\n""║           ☆☞ S T A T U S ☜☆\n""╠═════════════════════════\n"+md+"╚═════════════════════════")
+                jams.sendText(msg.to,"╔═════════════════════════\n""║           ☆☞ TEAM JAMS ☜☆\n""╠═════════════════════════\n"+md+"╚═════════════════════════")
 
 
             elif msg.text in ["Gift","gift"]:
@@ -1628,7 +1629,7 @@ def bot(op):
                                     'PRDTYPE': 'THEME',
                                     'MSGTPL': '8'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
                 
                 
             elif "Gift1 " in msg.text:
@@ -1638,7 +1639,7 @@ def bot(op):
                        nk2 = nk1.replace("@","")
                        nk3 = nk2.rstrip()
                        _name = nk3
-                       gs = vipro.getGroup(msg.to)
+                       gs = jams.getGroup(msg.to)
                        targets = []
                        for s in gs.members:
                            if _name in s.displayName:
@@ -1649,7 +1650,7 @@ def bot(op):
                        else:
                            for target in targets:
                                 try:
-                                    vipro.sendText(msg.to,_name + " Check Your Gift")
+                                    jams.sendText(msg.to,_name + " Check Your Gift")
                                     msg.contentType = 9
                                     msg.contentMetadata= {'PRDTYPE': 'STICKER',
                                                          'STKVER': '1',
@@ -1657,7 +1658,7 @@ def bot(op):
                                                          'STKPKGID': '1380280'}
                                     msg.to = target
                                     msg.text = None
-                                    vipro.sendMessage(msg)
+                                    jams.sendMessage(msg)
                                 except:
                                     msg.contentMetadata = {'mid': target}
 
@@ -1668,7 +1669,7 @@ def bot(op):
                        nk2 = nk1.replace("@","")
                        nk3 = nk2.rstrip()
                        _name = nk3
-                       gs = vipro.getGroup(msg.to)
+                       gs = jams.getGroup(msg.to)
                        targets = []
                        for s in gs.members:
                            if _name in s.displayName:
@@ -1679,7 +1680,7 @@ def bot(op):
                        else:
                            for target in targets:
                                 try:
-                                    vipro.sendText(msg.to,_name + " Check Your Gift")
+                                    jams.sendText(msg.to,_name + " Check Your Gift")
                                     msg.contentType = 9
                                     msg.contentMetadata= {'PRDTYPE': 'STICKER',
                                                          'STKVER': '1',
@@ -1687,7 +1688,7 @@ def bot(op):
                                                          'STKPKGID': '1360738'}
                                     msg.to = target
                                     msg.text = None
-                                    vipro.sendMessage(msg)
+                                    jams.sendMessage(msg)
                                 except:
                                     msg.contentMetadata = {'mid': target}
 
@@ -1698,7 +1699,7 @@ def bot(op):
                        nk2 = nk1.replace("@","")
                        nk3 = nk2.rstrip()
                        _name = nk3
-                       gs = vipro.getGroup(msg.to)
+                       gs = jams.getGroup(msg.to)
                        targets = []
                        for s in gs.members:
                            if _name in s.displayName:
@@ -1709,7 +1710,7 @@ def bot(op):
                        else:
                            for target in targets:
                                 try:
-                                    vipro.sendText(msg.to,_name + " Check Your Gift")
+                                    jams.sendText(msg.to,_name + " Check Your Gift")
                                     msg.contentType = 9
                                     msg.contentMetadata= {'PRDTYPE': 'STICKER',
                                                          'STKVER': '1',
@@ -1717,7 +1718,7 @@ def bot(op):
                                                          'STKPKGID': '1395389'}
                                     msg.to = target
                                     msg.text = None
-                                    vipro.sendMessage(msg)
+                                    jams.sendMessage(msg)
                                 except:
                                     msg.contentMetadata = {'mid': target}
 
@@ -1728,7 +1729,7 @@ def bot(op):
                        nk2 = nk1.replace("@","")
                        nk3 = nk2.rstrip()
                        _name = nk3
-                       gs = vipro.getGroup(msg.to)
+                       gs = jams.getGroup(msg.to)
                        targets = []
                        for s in gs.members:
                            if _name in s.displayName:
@@ -1739,7 +1740,7 @@ def bot(op):
                        else:
                            for target in targets:
                                 try:
-                                    vipro.sendText(msg.to,_name + " Check Your Gift")
+                                    jams.sendText(msg.to,_name + " Check Your Gift")
                                     msg.contentType = 9
                                     msg.contentMetadata= {'PRDTYPE': 'STICKER',
                                                          'STKVER': '1',
@@ -1747,7 +1748,7 @@ def bot(op):
                                                          'STKPKGID': '1329191'}
                                     msg.to = target
                                     msg.text = None
-                                    vipro.sendMessage(msg)
+                                    jams.sendMessage(msg)
                                 except:
                                     msg.contentMetadata = {'mid': target}
 
@@ -1758,7 +1759,7 @@ def bot(op):
                        nk2 = nk1.replace("@","")
                        nk3 = nk2.rstrip()
                        _name = nk3
-                       gs = vipro.getGroup(msg.to)
+                       gs = jams.getGroup(msg.to)
                        targets = []
                        for s in gs.members:
                            if _name in s.displayName:
@@ -1769,7 +1770,7 @@ def bot(op):
                        else:
                            for target in targets:
                                 try:
-                                    vipro.sendText(msg.to,_name + " Check Your Gift")
+                                    jams.sendText(msg.to,_name + " Check Your Gift")
                                     msg.contentType = 9
                                     msg.contentMetadata= {'PRDTYPE': 'STICKER',
                                                          'STKVER': '1',
@@ -1777,7 +1778,7 @@ def bot(op):
                                                          'STKPKGID': '9057'}
                                     msg.to = target
                                     msg.text = None
-                                    vipro.sendMessage(msg)
+                                    jams.sendMessage(msg)
                                 except:
                                     msg.contentMetadata = {'mid': target}
 
@@ -1788,7 +1789,7 @@ def bot(op):
                        nk2 = nk1.replace("@","")
                        nk3 = nk2.rstrip()
                        _name = nk3
-                       gs = vipro.getGroup(msg.to)
+                       gs = jams.getGroup(msg.to)
                        targets = []
                        for s in gs.members:
                            if _name in s.displayName:
@@ -1799,7 +1800,7 @@ def bot(op):
                        else:
                            for target in targets:
                                 try:
-                                    vipro.sendText(msg.to,_name + " Check Your Gift")
+                                    jams.sendText(msg.to,_name + " Check Your Gift")
                                     msg.contentType = 9
                                     msg.contentMetadata= {'PRDTYPE': 'STICKER',
                                                          'STKVER': '1',
@@ -1807,7 +1808,7 @@ def bot(op):
                                                          'STKPKGID': '9167'}
                                     msg.to = target
                                     msg.text = None
-                                    vipro.sendMessage(msg)
+                                    jams.sendMessage(msg)
                                 except:
                                     msg.contentMetadata = {'mid': target}
 
@@ -1818,7 +1819,7 @@ def bot(op):
                        nk2 = nk1.replace("@","")
                        nk3 = nk2.rstrip()
                        _name = nk3
-                       gs = vipro.getGroup(msg.to)
+                       gs = jams.getGroup(msg.to)
                        targets = []
                        for s in gs.members:
                            if _name in s.displayName:
@@ -1829,7 +1830,7 @@ def bot(op):
                        else:
                            for target in targets:
                                 try:
-                                    vipro.sendText(msg.to,_name + " Check Your Gift")
+                                    jams.sendText(msg.to,_name + " Check Your Gift")
                                     msg.contentType = 9
                                     msg.contentMetadata= {'PRDTYPE': 'STICKER',
                                                          'STKVER': '1',
@@ -1837,7 +1838,7 @@ def bot(op):
                                                          'STKPKGID': '7334'}
                                     msg.to = target
                                     msg.text = None
-                                    vipro.sendMessage(msg)
+                                    jams.sendMessage(msg)
                                 except:
                                     msg.contentMetadata = {'mid': target}
 
@@ -1848,7 +1849,7 @@ def bot(op):
                        nk2 = nk1.replace("@","")
                        nk3 = nk2.rstrip()
                        _name = nk3
-                       gs = vipro.getGroup(msg.to)
+                       gs = jams.getGroup(msg.to)
                        targets = []
                        for s in gs.members:
                            if _name in s.displayName:
@@ -1859,7 +1860,7 @@ def bot(op):
                        else:
                            for target in targets:
                                 try:
-                                    vipro.sendText(msg.to,_name + " Check Your Gift")
+                                    jams.sendText(msg.to,_name + " Check Your Gift")
                                     msg.contentType = 9
                                     msg.contentMetadata= {'PRDTYPE': 'STICKER',
                                                          'STKVER': '1',
@@ -1867,7 +1868,7 @@ def bot(op):
                                                          'STKPKGID': '1380280'}
                                     msg.to = target
                                     msg.text = None
-                                    vipro.sendMessage(msg)
+                                    jams.sendMessage(msg)
                                 except:
                                     msg.contentMetadata = {'mid': target}
 
@@ -1878,7 +1879,7 @@ def bot(op):
                        nk2 = nk1.replace("@","")
                        nk3 = nk2.rstrip()
                        _name = nk3
-                       gs = vipro.getGroup(msg.to)
+                       gs = jams.getGroup(msg.to)
                        targets = []
                        for s in gs.members:
                            if _name in s.displayName:
@@ -1889,7 +1890,7 @@ def bot(op):
                        else:
                            for target in targets:
                                 try:
-                                    vipro.sendText(msg.to,_name + " Check Your Gift")
+                                    jams.sendText(msg.to,_name + " Check Your Gift")
                                     msg.contentType = 9
                                     msg.contentMetadata= {'PRDTYPE': 'STICKER',
                                                          'STKVER': '1',
@@ -1897,7 +1898,7 @@ def bot(op):
                                                          'STKPKGID': '1405277'}
                                     msg.to = target
                                     msg.text = None
-                                    vipro.sendMessage(msg)
+                                    jams.sendMessage(msg)
                                 except:
                                     msg.contentMetadata = {'mid': target}
 
@@ -1908,7 +1909,7 @@ def bot(op):
                        nk2 = nk1.replace("@","")
                        nk3 = nk2.rstrip()
                        _name = nk3
-                       gs = vipro.getGroup(msg.to)
+                       gs = jams.getGroup(msg.to)
                        targets = []
                        for s in gs.members:
                            if _name in s.displayName:
@@ -1919,7 +1920,7 @@ def bot(op):
                        else:
                            for target in targets:
                                 try:
-                                    vipro.sendText(msg.to,_name + " Check Your Gift")
+                                    jams.sendText(msg.to,_name + " Check Your Gift")
                                     msg.contentType = 9
                                     msg.contentMetadata= {'PRDTYPE': 'STICKER',
                                                          'STKVER': '1',
@@ -1927,7 +1928,7 @@ def bot(op):
                                                          'STKPKGID': '1296261'}
                                     msg.to = target
                                     msg.text = None
-                                    vipro.sendMessage(msg)
+                                    jams.sendMessage(msg)
                                 except:
                                     msg.contentMetadata = {'mid': target}
 
@@ -1938,7 +1939,7 @@ def bot(op):
                                     'STKPKGID': '1',
                                     'STKVER': '100'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif msg.text.lower() in ["hehehe","hehe"]:
                 msg.contentType = 7
@@ -1946,7 +1947,7 @@ def bot(op):
                                     'STKPKGID': '1',
                                     'STKVER': '100'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif msg.text.lower() in ["galau"]:
                 msg.contentType = 7
@@ -1954,7 +1955,7 @@ def bot(op):
                                     'STKPKGID': '1',
                                     'STKVER': '100'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif msg.text.lower() in ["you","kau","kamu"]:
                 msg.contentType = 7
@@ -1962,7 +1963,7 @@ def bot(op):
                                     'STKPKGID': '1',
                                     'STKVER': '100'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif msg.text.lower() in ["marah","hadeuh","hadeh"]:
                 msg.contentType = 7
@@ -1970,7 +1971,7 @@ def bot(op):
                                     'STKPKGID': '1',
                                     'STKVER': '100'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif msg.text.lower() in ["please","pliss","mohon","tolong"]:
                 msg.contentType = 7
@@ -1978,7 +1979,7 @@ def bot(op):
                                     'STKPKGID': '1',
                                     'STKVER': '100'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif msg.text.lower() in ["haa","haaa","kaget"]:
                 msg.contentType = 7
@@ -1986,7 +1987,7 @@ def bot(op):
                                     'STKPKGID': '1',
                                     'STKVER': '100'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif msg.text.lower() in ["lucu","ngakak","lol"]:
                 msg.contentType = 7
@@ -1994,7 +1995,7 @@ def bot(op):
                                     'STKPKGID': '1',
                                     'STKVER': '100'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif msg.text.lower() in ["hmm","hmmm"]:
                 msg.contentType = 7
@@ -2002,7 +2003,7 @@ def bot(op):
                                     'STKPKGID': '1',
                                     'STKVER': '100'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif msg.text.lower() in ["tidur"]:
                 msg.contentType = 7
@@ -2010,7 +2011,7 @@ def bot(op):
                                     'STKPKGID': '1',
                                     'STKVER': '100'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif msg.text.lower() in ["gemes"]:
                 msg.contentType = 7
@@ -2018,7 +2019,7 @@ def bot(op):
                                     'STKPKGID': '1',
                                     'STKVER': '100'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif msg.text.lower() in ["cantik","imut"]:
                 msg.contentType = 7
@@ -2026,7 +2027,7 @@ def bot(op):
                                     'STKPKGID': '1',
                                     'STKVER': '100'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif msg.text.lower() in ["nyanyi","lalala"]:
                 msg.contentType = 7
@@ -2034,7 +2035,7 @@ def bot(op):
                                     'STKPKGID': '1',
                                     'STKVER': '100'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif msg.text.lower() in ["gugup"]:
                 msg.contentType = 7
@@ -2042,7 +2043,7 @@ def bot(op):
                                     'STKPKGID': '1',
                                     'STKVER': '100'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif msg.text.lower() in ["ok","oke","okay","oce","okee","sip","siph"]:
                 msg.contentType = 7
@@ -2050,7 +2051,7 @@ def bot(op):
                                     'STKPKGID': '1',
                                     'STKVER': '100'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif msg.text.lower() in ["mantab","mantap","nice","keren"]:
                 msg.contentType = 7
@@ -2058,7 +2059,7 @@ def bot(op):
                                     'STKPKGID': '1',
                                     'STKVER': '100'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif msg.text.lower() in ["ngejek"]:
                 msg.contentType = 7
@@ -2066,7 +2067,7 @@ def bot(op):
                                     'STKPKGID': '1',
                                     'STKVER': '100'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif msg.text.lower() in ["nangis","sedih"]:
                 msg.contentType = 7
@@ -2074,7 +2075,7 @@ def bot(op):
                                     'STKPKGID': '1',
                                     'STKVER': '100'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif msg.text.lower() in ["woi","kampret"]:
                 msg.contentType = 7
@@ -2082,7 +2083,7 @@ def bot(op):
                                     'STKPKGID': '1',
                                     'STKVER': '100'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif msg.text.lower() in ["huft"]:
                 msg.contentType = 7
@@ -2090,11 +2091,11 @@ def bot(op):
                                     'STKPKGID': '1',
                                     'STKVER': '100'}
                 msg.text = None
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
                 
 
-            elif "tag all" == msg.text.lower():
-                 group = vipro.getGroup(msg.to)
+            elif "🤣🤣" == msg.text.lower():
+                 group = jams.getGroup(msg.to)
                  nama = [contact.mid for contact in group.members]
                  nm1, nm2, nm3, nm4, nm5, jml = [], [], [], [], [], len(nama)
                  if jml <= 100:
@@ -2148,12 +2149,12 @@ def bot(op):
                  if jml > 500:
                      print "Terlalu Banyak Men 500+"
                  cnt = Message()
-                 cnt.text = "Jumlah:\n" + str(jml) +  " Members"
+                 cnt.text = "Jumlah:\n" + str(jml) +  " Ekor"
                  cnt.to = msg.to
-                 vipro.sendMessage(cnt)
+                 jams.sendMessage(cnt)
                  
             elif "tagall" == msg.text.lower():
-                 group = vipro.getGroup(msg.to)
+                 group = jams.getGroup(msg.to)
                  nama = [contact.mid for contact in group.members]
                  nm1, nm2, nm3, nm4, nm5, jml = [], [], [], [], [], len(nama)
                  if jml <= 100:
@@ -2209,7 +2210,7 @@ def bot(op):
                  cnt = Message()
                  cnt.text = "Jumlah:\n" + str(jml) +  " Members"
                  cnt.to = msg.to
-                 vipro.sendMessage(cnt)                 
+                 jams.sendMessage(cnt)                 
 
 
             elif msg.text in ["Setview","Setpoint","Cctv"]:
