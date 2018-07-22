@@ -2855,9 +2855,9 @@ def bot(op):
                         html = response.read()
                         soup = BeautifulSoup(html, "html.parser")
                         results = soup.find(attrs={'class': 'yt-uix-tile-link'})
-                        vipro.sendVideoWithURL(msg.to,'https://www.youtube.com' + results['href'])
+                        jams.sendVideoWithURL(msg.to,'https://www.youtube.com' + results['href'])
                     except:
-                        vipro.sendText(msg.to, "Could not find it")                    
+                        jams.sendText(msg.to, "Could not find it")                    
 
  
             elif "Say " in msg.text:
@@ -2865,29 +2865,29 @@ def bot(op):
                 lang = 'id'
                 tts = gTTS(text=say, lang=lang)
                 tts.save("hasil.mp3")
-                vipro.sendAudio(msg.to,"hasil.mp3")
+                jams.sendAudio(msg.to,"hasil.mp3")
 
             elif "Say-en " in msg.text:
                 say = msg.text.replace("Say-en ","")
                 lang = 'en'
                 tts = gTTS(text=say, lang=lang)
                 tts.save("hasil.mp3")
-                vipro.sendAudio(msg.to,"hasil.mp3")
+                jams.sendAudio(msg.to,"hasil.mp3")
 
             elif "Say-jp " in msg.text:
                 say = msg.text.replace("Say-jp ","")
                 lang = 'ja'
                 tts = gTTS(text=say, lang=lang)
                 tts.save("hasil.mp3")
-                vipro.sendAudio(msg.to,"hasil.mp3")
+                jams.sendAudio(msg.to,"hasil.mp3")
 
             elif "Say welcome" in msg.text:
-                gs = vipro.getGroup(msg.to)
+                gs = jams.getGroup(msg.to)
                 say = msg.text.replace("Say welcome","Selamat Datang Di "+ gs.name)
                 lang = 'id'
                 tts = gTTS(text=say, lang=lang)
                 tts.save("hasil.mp3")
-                vipro.sendAudio(msg.to,"hasil.mp3")
+                jams.sendAudio(msg.to,"hasil.mp3")
                 
             elif "lurk on" == msg.text.lower():
                #if msg.from_ in admin:
@@ -2904,7 +2904,7 @@ def bot(op):
                         wait2['ROM'][msg.to] = {}
                         with open('sider.json', 'w') as fp:
                          json.dump(wait2, fp, sort_keys=True, indent=4)
-                         vipro.sendText(msg.to,"Lurking already on")
+                         jams.sendText(msg.to,"Lurking already on")
                 else:
                     try:
                             del wait2['readPoint'][msg.to]
@@ -2918,14 +2918,14 @@ def bot(op):
                     wait2['ROM'][msg.to] = {}
                     with open('sider.json', 'w') as fp:
                      json.dump(wait2, fp, sort_keys=True, indent=4)
-                     vipro.sendText(msg.to, "Set the lastseens' point (｀・ω・´)\n\n" + datetime.now().strftime('%H:%M:%S'))
+                     jams.sendText(msg.to, "Set the lastseens' point (｀・ω・´)\n\n" + datetime.now().strftime('%H:%M:%S'))
                      print wait2
 
 
             elif "lurk off" == msg.text.lower():
                #if msg.from_ in admin:
                 if msg.to not in wait2['readPoint']:
-                    vipro.sendText(msg.to,"Lurking already off")
+                    jams.sendText(msg.to,"Lurking already off")
                 else:
                     try:
                             del wait2['readPoint'][msg.to]
@@ -2933,7 +2933,7 @@ def bot(op):
                             del wait2['setTime'][msg.to]
                     except:
                           pass
-                    vipro.sendText(msg.to, "Delete reading point:\n" + datetime.now().strftime('%H:%M:%S'))
+                    jams.sendText(msg.to, "Delete reading point:\n" + datetime.now().strftime('%H:%M:%S'))
 
 
 
@@ -2942,13 +2942,13 @@ def bot(op):
             	#if msg.from_ in admin:
                     if msg.to in wait2['readPoint']:
                         if wait2["ROM"][msg.to].items() == []:
-                             vipro.sendText(msg.to, "Lurkers:\nNone")
+                             jams.sendText(msg.to, "Lurkers:\nNone")
                         else:
                             chiya = []
                             for rom in wait2["ROM"][msg.to].items():
                                 chiya.append(rom[1])
                                
-                            cmem = vipro.getContacts(chiya)
+                            cmem = jams.getContacts(chiya)
                             zx = ""
                             zxc = ""
                             zx2 = []
@@ -2970,27 +2970,27 @@ def bot(op):
                         print lol
                         msg.contentMetadata = lol
                         try:
-                          vipro.sendMessage(msg)
-                          vipro.sendText(msg.to, "Jika sudah lihat sider please\ntulis lurk on lagi kak  (｀・ω・´)\n \n"  +  datetime.now().strftime('%H:%M:%S'))
+                          jams.sendMessage(msg)
+                          jams.sendText(msg.to, "Jika sudah lihat sider please\ntulis lurk on lagi kak  (｀・ω・´)\n \n"  +  datetime.now().strftime('%H:%M:%S'))
                         except Exception as error:
                               print error
                         pass
                
                     else:
-                        vipro.sendText(msg.to, "Lurking has not been set (｀・ω・´)\n \n"  +  datetime.now().strftime('%H:%M:%S'))    
+                        jams.sendText(msg.to, "Lurking has not been set (｀・ω・´)\n \n"  +  datetime.now().strftime('%H:%M:%S'))    
 
 
             elif msg.text.lower() in ["hi","hai","halo","hallo"]:
                     beb = "Hi Sayang 😘 " +vipro.getContact(msg.from_).displayName + " 􀸂􀆇starry heart􏿿"
-                    vipro.sendText(msg.to,beb)
+                    jams.sendText(msg.to,beb)
 
 
 
             elif "playstore " in msg.text.lower():
                 tob = msg.text.lower().replace("playstore ","")
-                vipro.sendText(msg.to,"Sedang Mencari...")
-                vipro.sendText(msg.to,"Title : "+tob+"\nSource : Google Play\nLink : https://play.google.com/store/search?q=" + tob)
-                vipro.sendText(msg.to,"Tuh Linknya Kak (^_^)")
+                jams.sendText(msg.to,"Sedang Mencari...")
+                jams.sendText(msg.to,"Title : "+tob+"\nSource : Google Play\nLink : https://play.google.com/store/search?q=" + tob)
+                jams.sendText(msg.to,"Tuh Linknya Kak (^_^)")
 
 
             elif "Mid @" in msg.text:
@@ -2999,7 +2999,7 @@ def bot(op):
                 gs = vipro.getGroup(msg.to)
                 for g in gs.members:
                     if _nametarget == g.displayName:
-                        vipro.sendText(msg.to, g.mid)
+                        jams.sendText(msg.to, g.mid)
                     else:
                         pass
 
@@ -3007,30 +3007,30 @@ def bot(op):
             elif "Mybio " in msg.text:
                     string = msg.text.replace("Mybio ","")
                     if len(string.decode('utf-8')) <= 500:
-                        profile = vipro.getProfile()
+                        profile = jams.getProfile()
                         profile.statusMessage = string
-                        vipro.updateProfile(profile)
-                        vipro.sendText(msg.to,"Done")
+                        jams.updateProfile(profile)
+                        jams.sendText(msg.to,"Done")
 
             elif "Myname " in msg.text:
 		if msg.from_ in Creator:
                     string = msg.text.replace("Myname ","")
                     if len(string.decode('utf-8')) <= 5000:
-                        profile = vipro.getProfile()
+                        profile = jams.getProfile()
                         profile.displayName = string
-                        vipro.updateProfile(profile)
-                        vipro.sendText(msg.to,"Done")
+                        jams.updateProfile(profile)
+                        jams.sendText(msg.to,"Done")
 
 
 
             elif msg.text.lower() in ["mymid","myid"]:
-                middd = "Name : " +vipro.getContact(msg.from_).displayName + "\nMid : " +msg.from_
+                middd = "Name : " +jams.getContact(msg.from_).displayName + "\nMid : " +msg.from_
                 vipro.sendText(msg.to,middd)
 
             elif msg.text.lower() in ["me"]:
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': msg.from_}
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif "apakah " in msg.text:
                 apk = msg.text.replace("apakah ","")
@@ -3038,8 +3038,8 @@ def bot(op):
                 p = random.choice(rnd)
                 lang = 'id'
                 tts = gTTS(text=p, lang=lang)
-                tts.save("hasil.mp3")
-                vipro.sendAudio(msg.to,"hasil.mp3")
+                tts.save("")
+                jams.sendAudio(msg.to,"")
                 
             elif "hari " in msg.text:
                 apk = msg.text.replace("hari ","")
@@ -3047,8 +3047,8 @@ def bot(op):
                 p = random.choice(rnd)
                 lang = 'id'
                 tts = gTTS(text=p, lang=lang)
-                tts.save("hasil.mp3")
-                vipro.sendAudio(msg.to,"hasil.mp3")   
+                tts.save("")
+                jams.sendAudio(msg.to,"")   
 
 
             elif "berapa " in msg.text:
@@ -3057,8 +3057,8 @@ def bot(op):
                 p = random.choice(rnd)
                 lang = 'id'
                 tts = gTTS(text=p, lang=lang)
-                tts.save("hasil.mp3")
-                vipro.sendAudio(msg.to,"hasil.mp3")
+                tts.save("")
+                jams.sendAudio(msg.to,"")
                 
             elif "berapakah " in msg.text:
                 apk = msg.text.replace("berapakah ","")
@@ -3066,8 +3066,8 @@ def bot(op):
                 p = random.choice(rnd)
                 lang = 'id'
                 tts = gTTS(text=p, lang=lang)
-                tts.save("hasil.mp3")
-                vipro.sendAudio(msg.to,"hasil.mp3")                
+                tts.save("")
+                jams.sendAudio(msg.to,"")                
 
             elif "kapan " in msg.text:
                 apk = msg.text.replace("kapan ","")
@@ -3075,19 +3075,19 @@ def bot(op):
                 p = random.choice(rnd)
                 lang = 'id'
                 tts = gTTS(text=p, lang=lang)
-                tts.save("hasil.mp3")
-                vipro.sendAudio(msg.to,"hasil.mp3")
+                tts.save("")
+                jams.sendAudio(msg.to,"")
 
  
             elif msg.text in ["Simisimi on","Simisimi:on"]:
                 settings["simiSimi"][msg.to] = True
                 wait["Simi"] = True
-                vipro.sendText(msg.to," Simisimi Di Aktifkan")
+                jams.sendText(msg.to," Simisimi Di Aktifkan")
                 
             elif msg.text in ["Simisimi off","Simisimi:off"]:
                 settings["simiSimi"][msg.to] = False
                 wait["Simi"] = False
-                vipro.sendText(msg.to,"Simisimi Di Nonaktifkan")
+                jams.sendText(msg.to,"Simisimi Di Nonaktifkan")
 
  
             elif "Image " in msg.text:
@@ -3099,7 +3099,7 @@ def bot(op):
                 path = random.choice(items)
                 print path
                 try:
-                    vipro.sendImageWithURL(msg.to,path)
+                    jams.sendImageWithURL(msg.to,path)
                 except:
                     pass
  
@@ -3115,7 +3115,7 @@ def bot(op):
                         for a in soup.select('.yt-lockup-title > a[title]'):
                             if '&list=' not in a['href']:
                                 hasil += ''.join((a['title'],'\nUrl : http://www.youtube.com' + a['href'],'\n\n'))
-                        vipro.sendText(msg.to,hasil)
+                        jams.sendText(msg.to,hasil)
                         print '[Command] Youtube Search'
 
 
@@ -3126,7 +3126,7 @@ def bot(op):
                 hasil = translator.translate(isi, dest='id')
                 A = hasil.text
                 A = A.encode('utf-8')
-                vipro.sendText(msg.to, A)
+                jams.sendText(msg.to, A)
 
             elif "Tr-en " in msg.text:
                 isi = msg.text.replace("Tr-en ","")
@@ -3134,7 +3134,7 @@ def bot(op):
                 hasil = translator.translate(isi, dest='en')
                 A = hasil.text
                 A = A.encode('utf-8')
-                vipro.sendText(msg.to, A)
+                jams.sendText(msg.to, A)
                 
             elif "Tr-th " in msg.text:
                 isi = msg.text.replace("Tr-th ","")
@@ -3142,7 +3142,7 @@ def bot(op):
                 hasil = translator.translate(isi, dest='th')
                 A = hasil.text
                 A = A.encode('utf-8')
-                vipro.sendText(msg.to, A)                
+                jams.sendText(msg.to, A)                
 
             
             elif "Id@en" in msg.text:
@@ -3156,7 +3156,7 @@ def bot(op):
                 page = urllib2.urlopen(request).read()
                 result = page[page.find(cari_hasil)+len(cari_hasil):]
                 result = result.split("<")[0]
-                vipro.sendText(msg.to,"----Dari Indonesia----\n" + "" + kata + "\n\n----Ke Inggris----\n" + "" + result)
+                jams.sendText(msg.to,"----Dari Indonesia----\n" + "" + kata + "\n\n----Ke Inggris----\n" + "" + result)
 
 
             elif "En@id" in msg.text:
@@ -3170,7 +3170,7 @@ def bot(op):
                 page = urllib2.urlopen(request).read()
                 result = page[page.find(cari_hasil)+len(cari_hasil):]
                 result = result.split("<")[0]
-                vipro.sendText(msg.to,"----Dari Inggris----\n" + "" + kata + "\n\n----Ke Indonesia----\n" + "" + result)
+                jams.sendText(msg.to,"----Dari Inggris----\n" + "" + kata + "\n\n----Ke Indonesia----\n" + "" + result)
                 
             
             elif "Id@th" in msg.text:
@@ -3184,7 +3184,7 @@ def bot(op):
                 page = urllib2.urlopen(request).read()
                 result = page[page.find(cari_hasil)+len(cari_hasil):]
                 result = result.split("<")[0]
-                vipro.sendText(msg.to,"----Dari Indonesia----\n" + "" + kata + "\n\n----Ke Thailand----\n" + "" + result)
+                jams.sendText(msg.to,"----Dari Indonesia----\n" + "" + kata + "\n\n----Ke Thailand----\n" + "" + result)
                 
             
             elif "Th@id" in msg.text:
@@ -3198,21 +3198,21 @@ def bot(op):
                 page = urllib2.urlopen(request).read()
                 result = page[page.find(cari_hasil)+len(cari_hasil):]
                 result = result.split("<")[0]
-                vipro.sendText(msg.to,"----Dari Thailand----\n" + "" + kata + "\n\n----Ke Indonesia----\n" + "" + result)                
+                jams.sendText(msg.to,"----Dari Thailand----\n" + "" + kata + "\n\n----Ke Indonesia----\n" + "" + result)                
  
             elif msg.text in ["Friendlist"]:    
-                contactlist = vipro.getAllContactIds()
-                kontak = vipro.getContacts(contactlist)
+                contactlist = jams.getAllContactIds()
+                kontak = jams.getContacts(contactlist)
                 num=1
                 msgs="═════════List Friend═════════"
                 for ids in kontak:
                     msgs+="\n[%i] %s" % (num, ids.displayName)
                     num=(num+1)
                 msgs+="\n═════════List Friend═════════\n\nTotal Friend : %i" % len(kontak)
-                vipro.sendText(msg.to, msgs)
+                jams.sendText(msg.to, msgs)
 
             elif msg.text in ["Memlist"]:   
-                kontak = vipro.getGroup(msg.to)
+                kontak = jams.getGroup(msg.to)
                 group = kontak.members
                 num=1
                 msgs="═════════List Member═�����═══════-"
@@ -3220,7 +3220,7 @@ def bot(op):
                     msgs+="\n[%i] %s" % (num, ids.displayName)
                     num=(num+1)
                 msgs+="\n═════════List Member═════════\n\nTotal Members : %i" % len(group)
-                vipro.sendText(msg.to, msgs)
+                jams.sendText(msg.to, msgs)
 
             
 
@@ -3235,52 +3235,52 @@ def bot(op):
                     if _nametarget == g.displayName:
                         targets.append(g.mid)
                 if targets == []:
-                    vipro.sendText(msg.to,"Contact not found")
+                    jams.sendText(msg.to,"Contact not found")
                 else:
                     for target in targets:
                         try:
-                            contact = vipro.getContact(target)
+                            contact = jams.getContact(target)
                             path = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
-                            vipro.sendVideoWithURL(msg.to, path)
+                            jams.sendVideoWithURL(msg.to, path)
                         except Exception as e:
                             raise e
                 print "[Command]dp executed"
 
 
             elif "Getgroup image" in msg.text:
-                group = vipro.getGroup(msg.to)
+                group = jams.getGroup(msg.to)
                 path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
-                vipro.sendImageWithURL(msg.to,path)
+                jams.sendImageWithURL(msg.to,path)
 
             elif "Urlgroup image" in msg.text:
-                group = vipro.getGroup(msg.to)
+                group = jams.getGroup(msg.to)
                 path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
-                vipro.sendText(msg.to,path)
+                jams.sendText(msg.to,path)
  
             elif "Name" in msg.text:
                 key = eval(msg.contentMetadata["MENTION"])
                 key1 = key["MENTIONEES"][0]["M"]
-                contact = vipro.getContact(key1)
-                cu = vipro.channel.getCover(key1)
+                contact = jams.getContact(key1)
+                cu = jams.channel.getCover(key1)
                 try:
-                    vipro.sendText(msg.to, "===[DisplayName]===\n" + contact.displayName)
+                    jams.sendText(msg.to, "===[DisplayName]===\n" + contact.displayName)
                 except:
-                    vipro.sendText(msg.to, "===[DisplayName]===\n" + contact.displayName)
+                    jams.sendText(msg.to, "===[DisplayName]===\n" + contact.displayName)
 
 
             elif "Profile" in msg.text:
                 key = eval(msg.contentMetadata["MENTION"])
                 key1 = key["MENTIONEES"][0]["M"]
-                contact = vipro.getContact(key1)
-                cu = vipro.channel.getCover(key1)
+                contact = jams.getContact(key1)
+                cu = jams.channel.getCover(key1)
                 path = str(cu)
                 image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
                 try:
-                    vipro.sendText(msg.to,"Nama :\n" + contact.displayName + "\n\nBio :\n" + contact.statusMessage)
-                    vipro.sendText(msg.to,"Profile Picture " + contact.displayName)
-                    vipro.sendImageWithURL(msg.to,image)
-                    vipro.sendText(msg.to,"Cover " + contact.displayName)
-                    vipro.sendImageWithURL(msg.to,path)
+                    jams.sendText(msg.to,"Nama :\n" + contact.displayName + "\n\nBio :\n" + contact.statusMessage)
+                    jams.sendText(msg.to,"Profile Picture " + contact.displayName)
+                    jams.sendImageWithURL(msg.to,image)
+                    jams.sendText(msg.to,"Cover " + contact.displayName)
+                    jams.sendImageWithURL(msg.to,path)
                 except:
                     pass
 
@@ -3288,37 +3288,37 @@ def bot(op):
             elif "Contact" in msg.text:
                 key = eval(msg.contentMetadata["MENTION"])
                 key1 = key["MENTIONEES"][0]["M"]                
-                mmid = vipro.getContact(key1)
+                mmid = jams.getContact(key1)
                 msg.contentType = 13
                 msg.contentMetadata = {"mid": key1}
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
 
             elif "Info" in msg.text:
                 key = eval(msg.contentMetadata["MENTION"])
                 key1 = key["MENTIONEES"][0]["M"]
-                contact = vipro.getContact(key1)
-                cu = vipro.channel.getCover(key1)
+                contact = jams.getContact(key1)
+                cu = jams.channel.getCover(key1)
                 try:
-                    vipro.sendText(msg.to,"Nama :\n" + contact.displayName + "\n\nMid :\n" + contact.mid + "\n\nBio :\n" + contact.statusMessage + "\n\nProfile Picture :\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\n\nHeader :\n" + str(cu))
+                    jams.sendText(msg.to,"Nama :\n" + contact.displayName + "\n\nMid :\n" + contact.mid + "\n\nBio :\n" + contact.statusMessage + "\n\nProfile Picture :\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\n\nHeader :\n" + str(cu))
                 except:
-                    vipro.sendText(msg.to,"Nama :\n" + contact.displayName + "\n\nMid :\n" + contact.mid + "\n\nBio :\n" + contact.statusMessage + "\n\nProfile Picture :\n" + str(cu))
+                    jams.sendText(msg.to,"Nama :\n" + contact.displayName + "\n\nMid :\n" + contact.mid + "\n\nBio :\n" + contact.statusMessage + "\n\nProfile Picture :\n" + str(cu))
 
 
             elif "Bio" in msg.text:
                 key = eval(msg.contentMetadata["MENTION"])
                 key1 = key["MENTIONEES"][0]["M"]
-                contact = vipro.getContact(key1)
+                contact = jams.getContact(key1)
                 cu = vipro.channel.getCover(key1)
                 try:
-                    vipro.sendText(msg.to, "===[StatusMessage]===\n" + contact.statusMessage)
+                    jams.sendText(msg.to, "===[StatusMessage]===\n" + contact.statusMessage)
                 except:
-                    vipro.sendText(msg.to, "===[StatusMessage]===\n" + contact.statusMessage)
+                    jams.sendText(msg.to, "===[StatusMessage]===\n" + contact.statusMessage)
 
 
             elif msg.text.lower() == 'runtime':
                 eltime = time.time() - mulai
-                van = "Bot Sudah Berjalan Selama :\n"+waktu(eltime)
-                vipro.sendText(msg.to,van)
+                van = "Jams Sudah Berjalan Selama :\n"+waktu(eltime)
+                jams.sendText(msg.to,van)
                 
                  
             elif "Checkdate " in msg.text:
@@ -3330,7 +3330,7 @@ def bot(op):
                 usia = data["data"]["usia"]
                 ultah = data["data"]["ultah"]
                 zodiak = data["data"]["zodiak"]
-                vipro.sendText(msg.to,"========== I N F O R M A S I ==========\n"+"Date Of Birth : "+lahir+"\nAge : "+usia+"\nUltah : "+ultah+"\nZodiak : "+zodiak+"\n========== I N F O R M A S I ==========")
+                jams.sendText(msg.to,"========== I N F O R M A S I ==========\n"+"Date Of Birth : "+lahir+"\nAge : "+usia+"\nUltah : "+ultah+"\nZodiak : "+zodiak+"\n========== I N F O R M A S I ==========")
                 
    
             elif msg.text in ["Kalender","Time","Waktu"]:
@@ -3347,85 +3347,85 @@ def bot(op):
                 for k in range(0, len(bulan)):
                     if bln == str(k): bln = bulan[k-1]
                 rst = hasil + ", " + inihari.strftime('%d') + " - " + bln + " - " + inihari.strftime('%Y') + "\nJam : [ " + inihari.strftime('%H:%M:%S') + " ]"
-                vipro.sendText(msg.to, rst)                
+                jams.sendText(msg.to, rst)                
                  
                 
             elif "SearchID " in msg.text:
                 userid = msg.text.replace("SearchID ","")
-                contact = vipro.findContactsByUserid(userid)
+                contact = jams.findContactsByUserid(userid)
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': contact.mid}
-                vipro.sendMessage(msg)
+                jams.sendMessage(msg)
                 
             elif "Searchid " in msg.text:
                 userid = msg.text.replace("Searchid ","")
-                contact = vipro.findContactsByUserid(userid)
+                contact = jams.findContactsByUserid(userid)
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': contact.mid}
-                vipro.sendMessage(msg)       
+                jams.sendMessage(msg)       
                 
                 
             elif "removechat" in msg.text.lower():
                 if msg.from_ in admin:
                     try:
-                        vipro.removeAllMessages(op.param2)
+                        jams.removeAllMessages(op.param2)
                         print "[Command] Remove Chat"
-                        vipro.sendText(msg.to,"Done")
+                        jams.sendText(msg.to,"Done")
                     except Exception as error:
                         print error
-                        vipro.sendText(msg.to,"Error")      
+                        jams.sendText(msg.to,"Error")      
                         
                         
             elif "Invitemeto " in msg.text:
                 if msg.from_ in admin:
                     gid = msg.text.replace("Invitemeto ","")
                     if gid == "":
-                        vipro.sendText(msg.to,"Invalid group id")
+                        jams.sendText(msg.to,"Invalid group id")
                     else:
                         try:
-                            vipro.findAndAddContactsByMid(msg.from_)
-                            vipro.inviteIntoGroup(gid,[msg.from_])
+                            jams.findAndAddContactsByMid(msg.from_)
+                            jams.inviteIntoGroup(gid,[msg.from_])
                         except:
-                            vipro.sendText(msg.to,"Mungkin Saya Tidak Di Dalaam Grup Itu")
+                            jams.sendText(msg.to,"Mungkin Saya Tidak Di Dalaam Grup Itu")
 
 
             elif msg.text in ["Glist"]:
                 vipro.sendText(msg.to, "Tunggu Sebentar. . .")                    
-                gid = vipro.getGroupIdsJoined()
+                gid = jams.getGroupIdsJoined()
                 h = ""
                 for i in gid:
-                    h += "╠➩" + "%s\n" % (vipro.getGroup(i).name +" ~> ["+str(len(vipro.getGroup(i).members))+"]")
-                vipro.sendText(msg.to,"╔═════════════════════════\n║          ☆☞ LIST GROUPS☜☆\n╠═════════════════════════\n" + h + "╠═════════════════════════" + "\n║ Total Groups =" +" ["+str(len(gid))+"]\n╚═════════════════════════")
+                    h += "╠➩" + "%s\n" % (jams.getGroup(i).name +" ~> ["+str(len(vipro.getGroup(i).members))+"]")
+                jams.sendText(msg.to,"╔═════════════════════════\n║          ☆☞ LIST GROUPS☜☆\n╠═════════════════════════\n" + h + "╠═════════════════════════" + "\n║ Total Groups =" +" ["+str(len(gid))+"]\n╚═════════════════════════")
 
             elif msg.text in ["Glistmid"]:   
-                gruplist = vipro.getGroupIdsJoined()
-                kontak = vipro.getGroups(gruplist)
+                gruplist = jams.getGroupIdsJoined()
+                kontak = jams.getGroups(gruplist)
                 num=1
                 msgs="═════════List GrupMid═════════"
                 for ids in kontak:
                     msgs+="\n[%i] %s" % (num, ids.id)
                     num=(num+1)
                 msgs+="\n═════════List GrupMid═════════\n\nTotal Grup : %i" % len(kontak)
-                vipro.sendText(msg.to, msgs)
+                jams.sendText(msg.to, msgs)
 
 
 
             elif "Google: " in msg.text:
                     a = msg.text.replace("Google: ","")
                     b = urllib.quote(a)
-                    vipro.sendText(msg.to,"Sedang Mencari...")
-                    vipro.sendText(msg.to, "https://www.google.com/" + b)
-                    vipro.sendText(msg.to,"Itu Dia Linknya. . .")     
+                    jams.sendText(msg.to,"Sedang Mencari...")
+                    jams.sendText(msg.to, "https://www.google.com/" + b)
+                    jams.sendText(msg.to,"Itu Dia Linknya. . .")     
 
 
             elif "Details group: " in msg.text:
                 if msg.from_ in admin:
                     gid = msg.text.replace("Details group: ","")
                     if gid in [""," "]:
-                        vipro.sendText(msg.to,"Grup id tidak valid")
+                        jams.sendText(msg.to,"Grup id tidak valid")
                     else:
                         try:
-                            groups = vipro.getGroup(gid)
+                            groups = jams.getGroup(gid)
                             if groups.members is not None:
                                 members = str(len(groups.members))
                             else:
@@ -3437,47 +3437,47 @@ def bot(op):
                             h = "[" + groups.name + "]\n -+GroupID : " + gid + "\n -+Members : " + members + "\n -+MembersPending : " + pendings + "\n -+Creator : " + groups.creator.displayName + "\n -+GroupPicture : http://dl.profile.line.naver.jp/" + groups.pictureStatus
                             vipro.sendText(msg.to,h)
                         except Exception as error:
-                            vipro.sendText(msg.to,(error))
+                            jams.sendText(msg.to,(error))
             
             elif "Cancel invite: " in msg.text:
                 if msg.from_ in admin:
                     gids = msg.text.replace("Cancel invite: ","")
-                    gid = vipro.getGroup(gids)
+                    gid = jams.getGroup(gids)
                     for i in gid:
                         if i is not None:
                             try:
-                                vipro.rejectGroupInvitation(i)
+                                jams.rejectGroupInvitation(i)
                             except:
-                                vipro.sendText(msg.to,"Error!")
+                                jams.sendText(msg.to,"Error!")
                                 break
                         else:
                             break
                     if gid is not None:
-                        vipro.sendText(msg.to,"Berhasil tolak undangan dari grup " + gid.name)
+                        jams.sendText(msg.to,"Berhasil tolak undangan dari grup " + gid.name)
                     else:
-                        vipro.sendText(msg.to,"Grup tidak ditemukan")
+                        jams.sendText(msg.to,"Grup tidak ditemukan")
             
             elif msg.text in ["Acc invite"]:
                 if msg.from_ in admin:
-                    gid = vipro.getGroupIdsInvited()
+                    gid = jams.getGroupIdsInvited()
                     _list = ""
                     for i in gid:
                         if i is not None:
-                            gids = vipro.getGroup(i)
+                            gids = jams.getGroup(i)
                             _list += gids.name
                             vipro.acceptGroupInvitation(i)
                         else:
                             break
                     if gid is not None:
-                        vipro.sendText(msg.to,"Berhasil terima semua undangan dari grup :\n" + _list)
+                        jams.sendText(msg.to,"Berhasil terima semua undangan dari grup :\n" + _list)
                     else:
-                        vipro.sendText(msg.to,"Tidak ada grup yang tertunda saat ini")  
+                        jams.sendText(msg.to,"Tidak ada grup yang tertunda saat ini")  
 
 
             elif "Gif gore" in msg.text:
             	gif = ("https://media.giphy.com/media/l2JHVsQiOZrNMGzYs/giphy.gif","https://media.giphy.com/media/OgltQ2hbilzJS/200w.gif")
                 gore = random.choice(gif)
-                vipro.sendGifWithURL(msg.to,gore)
+                jams.sendGifWithURL(msg.to,gore)
                 
 
                 
@@ -3490,10 +3490,10 @@ def bot(op):
                 for target in targets:
                     try:
                         mimic["target"][target] = True
-                        vipro.sendText(msg.to,"Target ditambahkan!")
+                        jams.sendText(msg.to,"Target ditambahkan!")
                         break
                     except:
-                        vipro.sendText(msg.to,"Fail !")
+                        jams.sendText(msg.to,"Fail !")
                         break
                     
             elif ("Micdel " in msg.text):
@@ -3505,47 +3505,47 @@ def bot(op):
                 for target in targets:
                     try:
                         del mimic["target"][target]
-                        vipro.sendText(msg.to,"Target dihapuskan!")
+                        jams.sendText(msg.to,"Target dihapuskan!")
                         break
                     except:
-                        vipro.sendText(msg.to,"Fail !")
+                        jams.sendText(msg.to,"Fail !")
                         break
                     
             elif msg.text in ["Miclist"]:
                         if mimic["target"] == {}:
-                            vipro.sendText(msg.to,"Nothing")
+                            jams.sendText(msg.to,"Nothing")
                         else:
                             mc = "Target Mimic User:\n"
                             for mi_d in mimic["target"]:
                                 mc += "?? "+vipro.getContact(mi_d).displayName + "\n"
-                            vipro.sendText(msg.to,mc)
+                            jams.sendText(msg.to,mc)
 
             elif "Mimic target " in msg.text:
                         if mimic["copy"] == True:
                             siapa = msg.text.replace("Mimic target ","")
                             if siapa.rstrip(' ') == "me":
                                 mimic["copy2"] = "me"
-                                vipro.sendText(msg.to,"Mimic change to me")
+                                jams.sendText(msg.to,"Mimic change to me")
                             elif siapa.rstrip(' ') == "target":
                                 mimic["copy2"] = "target"
-                                vipro.sendText(msg.to,"Mimic change to target")
+                                jams.sendText(msg.to,"Mimic change to target")
                             else:
-                                vipro.sendText(msg.to,"I dont know")
+                                jams.sendText(msg.to,"I dont know")
             
             elif "Mimic " in msg.text:
                 cmd = msg.text.replace("Mimic ","")
                 if cmd == "on":
                     if mimic["status"] == False:
                         mimic["status"] = True
-                        vipro.sendText(msg.to,"Reply Message on")
+                        jams.sendText(msg.to,"Reply Message on")
                     else:
-                        vipro.sendText(msg.to,"Sudah on")
+                        jams.sendText(msg.to,"Sudah on")
                 elif cmd == "off":
                     if mimic["status"] == True:
                         mimic["status"] = False
-                        vipro.sendText(msg.to,"Reply Message off")
+                        jams.sendText(msg.to,"Reply Message off")
                     else:
-                        vipro.sendText(msg.to,"Sudah off")
+                        jams.sendText(msg.to,"Sudah off")
 
 
 
