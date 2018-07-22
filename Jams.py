@@ -1097,7 +1097,7 @@ def bot(op):
                 if wait["gift"] == True:
                     _name = msg.contentMetadata["displayName"]
                     copy = msg.contentMetadata["mid"]
-                    groups = vipro.getGroup(msg.to)
+                    groups = jams.getGroup(msg.to)
                     pending = groups.invitee
                     targets = []
                     for s in groups.members:
@@ -1111,7 +1111,7 @@ def bot(op):
                     else:
                         for target in targets:
                             try:
-                                vipro.sendText(msg.to,"Gift Sudah Terkirim!")
+                                jams.sendText(msg.to,"Gift Sudah Terkirim!")
                                 msg.contentType = 9
                                 msg.contentMetadata= {'PRDTYPE': 'STICKER',
                                                          'STKVER': '1',
@@ -1119,7 +1119,7 @@ def bot(op):
                                                          'STKPKGID': '1296261'}
                                 msg.to = target
                                 msg.text = None
-                                vipro.sendMessage(msg)
+                                jams.sendMessage(msg)
                                 wait['gift'] = False
                                 break
                             except:
@@ -1131,7 +1131,7 @@ def bot(op):
                 if wait["copy"] == True:
                     _name = msg.contentMetadata["displayName"]
                     copy = msg.contentMetadata["mid"]
-                    groups = vipro.getGroup(msg.to)
+                    groups = jams.getGroup(msg.to)
                     targets = []
                     for s in groups.members:
                         if _name in s.displayName:
@@ -1140,13 +1140,13 @@ def bot(op):
                         else:
                             targets.append(copy)
                     if targets == []:
-                        vipro.sendText(msg.to, "Not Found...")
+                        jams.sendText(msg.to, "Not Found...")
                         pass
                     else:
                         for target in targets:
                             try:
                                 vipro.CloneContactProfile(target)
-                                vipro.sendText(msg.to, "Copied (^_^)")
+                                jams.sendText(msg.to, "Copied (^_^)")
                                 wait['copy'] = False
                                 break
                             except:
@@ -1159,12 +1159,12 @@ def bot(op):
                 if wait['invite'] == True:
                      _name = msg.contentMetadata["displayName"]
                      invite = msg.contentMetadata["mid"]
-                     groups = vipro.getGroup(msg.to)
+                     groups = jams.getGroup(msg.to)
                      pending = groups.invitee
                      targets = []
                      for s in groups.members:
                          if _name in s.displayName:
-                             vipro.sendText(msg.to, _name + " Berada DiGrup Ini")
+                             jams.sendText(msg.to, _name + " Berada DiGrup Ini")
                          else:
                              targets.append(invite)
                      if targets == []:
@@ -1172,78 +1172,78 @@ def bot(op):
                      else:
                          for target in targets:
                              try:
-                                 vipro.findAndAddContactsByMid(target)
-                                 vipro.inviteIntoGroup(msg.to,[target])
-                                 vipro.sendText(msg.to,"Invite " + _name)
+                                 jams.findAndAddContactsByMid(target)
+                                 jams.inviteIntoGroup(msg.to,[target])
+                                 jams.sendText(msg.to,"Invite " + _name)
                                  wait['invite'] = False
                                  break                              
                              except:             
-                                      vipro.sendText(msg.to,"Limit Invite")
+                                      jams.sendText(msg.to,"Limit Invite")
                                       wait['invite'] = False
                                       break
                                   
  
             elif msg.text in ["Key creator","help creator","Help creator"]:
-                vipro.sendText(msg.to,creatorMessage)
+                jams.sendText(msg.to,creatorMessage)
 
             elif msg.text in ["Key group","help group","Help group"]:
-                vipro.sendText(msg.to,groupMessage)
+                jams.sendText(msg.to,groupMessage)
 
             elif msg.text in ["Key","help","Help"]:
-                vipro.sendText(msg.to,helpMessage)
+                jams.sendText(msg.to,helpMessage)
 
             elif msg.text in ["Key self","help self","Help self"]:
-                vipro.sendText(msg.to,selfMessage)
+                jams.sendText(msg.to,selfMessage)
 
             elif msg.text in ["Key bot","help bot","Help bot"]:
-                vipro.sendText(msg.to,botMessage)
+                jams.sendText(msg.to,botMessage)
 
             elif msg.text in ["Key set","help set","Help set"]:
-                vipro.sendText(msg.to,setMessage)
+                jams.sendText(msg.to,setMessage)
 
             elif msg.text in ["Key media","help media","Help media"]:
-                vipro.sendText(msg.to,mediaMessage)
+                jams.sendText(msg.to,mediaMessage)
                 
             elif msg.text in ["Key admin","help admin","Help admin"]:
-                vipro.sendText(msg.to,adminMessage)               
+                jams.sendText(msg.to,adminMessage)               
                 
 
  
             elif msg.text in ["List group"]:
-                    gid = vipro.getGroupIdsJoined()
+                    gid = jams.getGroupIdsJoined()
                     h = ""
 		    jml = 0
                     for i in gid:
-		        gn = vipro.getGroup(i).name
+		        gn = jams.getGroup(i).name
                         h += "♦【%s】\n" % (gn)
 		        jml += 1
-                    vipro.sendText(msg.to,"=======[List Group]=======\n"+ h +"\nTotal Group: "+str(jml))
+                    jams.sendText(msg.to,"=======[List Group]=======\n"+ h +"\nTotal Group: "+str(jml))
  
 	    elif "Ban group: " in msg.text:
 		grp = msg.text.replace("Ban group: ","")
-		gid = vipro.getGroupIdsJoined()
+		gid = jams.getGroupIdsJoined()
 		if msg.from_ in admin:
 		    for i in gid:
-		        h = vipro.getGroup(i).name
+		        h = jams.getGroup(i).name
 			if h == grp:
 			    wait["BlGroup"][i]=True
-			    vipro.sendText(msg.to, "Success Ban Group : "+grp)
+			    jams.sendText(msg.to, "Success Ban Group : "+grp)
 			else:
 			    pass
 		else:
-		    vipro.sendText(msg.to, "Khusus Admin")
+		    jams.sendText(msg.to, "Khusus Jams")
  
             elif msg.text in ["List ban","List ban group"]:
 		if msg.from_ in admin:
                     if wait["BlGroup"] == {}:
-                        vipro.sendText(msg.to,"Tidak Ada")
+                        jams.sendText(msg.to,"Tidak Ada")
                     else:
                         mc = ""
                         for gid in wait["BlGroup"]:
-                            mc += "-> " +vipro.getGroup(gid).name + "\n"
-                        vipro.sendText(msg.to,"===[Ban Group]===\n"+mc)
+                            mc += "-> " +jams.getGroup(gid).name + "\n"
+                        jams.sendText(msg.to,"===[Ban Group]===\n"+mc)
 		else:
-		    vipro.sendText(msg.to, "Khusus Admin")
+		    jams.sendText(msg.to, "Khusus Jams")
  
 	    elif msg.text in ["Del ban: "]:
 		if msg.from_ in admin:
@@ -3559,12 +3559,12 @@ def bot(op):
 
 while True:
     try:
-        Ops = vipro.fetchOps(vipro.Poll.rev, 5)
+        Ops = jams.fetchOps(jams.Poll.rev, 5)
     except EOFError:
-        raise Exception("It might be wrong revision\n" + str(vipro.Poll.rev))
+        raise Exception("It might be wrong revision\n" + str(jams.Poll.rev))
 
     for Op in Ops:
         if (Op.type != OpType.END_OF_OPERATION):
-            vipro.Poll.rev = max(vipro.Poll.rev, Op.revision)
+            jams.Poll.rev = max(jams.Poll.rev, Op.revision)
             bot(Op)
 
