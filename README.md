@@ -26,8 +26,8 @@ Di C9 :
 Di Termux :
 - Ketik -> `pkg update`
 - Ketik -> `pkg install git`
-- Ketik -> `pkg install python2`
-- Ketik -> `pip2 install rsa`
+
+
 - Ketik -> `pip2 install thrift==0.9.3`
 - Ketik -> `pip2 install requests`
 - Ketik -> `pip2 install bs4`
@@ -46,14 +46,4 @@ Di C9 :
 
 Di Termux :
 - Ketik -> `cd vipro2`
-- Ketik -> `python2 vipro.py`
-
-
-Credit By@ Vipro.
-------
-- `Add My ID LINE : gjxvipro`
-
-Thx To :
-------
-- `LINE-TCR TEAM`
 
