@@ -279,7 +279,7 @@ wait = {
     'sticker':False,  
     'timeline':True,
     "Timeline":True,
-    "comment":"Auto Like ©By : TEAM JAMS\nContact Me : 👉 line.me/ti/p/~jameshakim",    
+    "comment":"Auto Like ©By : TEAM JAMS\nContact Me : 👉 line.me/ti/p/~jameshakim1",    
     "commentOn":True,
     "commentBlack":{},
     "message":"Thx For Add Me (^_^)\nInvite Me To Your Group ヘ(^_^)ヘ",    
