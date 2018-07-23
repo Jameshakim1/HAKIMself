@@ -2996,7 +2996,7 @@ def bot(op):
             elif "Mid @" in msg.text:
                 _name = msg.text.replace("Mid @","")
                 _nametarget = _name.rstrip(' ')
-                gs = vipro.getGroup(msg.to)
+                gs = jams.getGroup(msg.to)
                 for g in gs.members:
                     if _nametarget == g.displayName:
                         jams.sendText(msg.to, g.mid)
@@ -3025,7 +3025,7 @@ def bot(op):
 
             elif msg.text.lower() in ["mymid","myid"]:
                 middd = "Name : " +jams.getContact(msg.from_).displayName + "\nMid : " +msg.from_
-                vipro.sendText(msg.to,middd)
+                jams.sendText(msg.to,middd)
 
             elif msg.text.lower() in ["me"]:
                 msg.contentType = 13
@@ -3229,7 +3229,7 @@ def bot(op):
                 print "[Command]dp executing"
                 _name = msg.text.replace("Getvid @","")
                 _nametarget = _name.rstrip('  ')
-                gs = vipro.getGroup(msg.to)
+                gs = jams.getGroup(msg.to)
                 targets = []
                 for g in gs.members:
                     if _nametarget == g.displayName:
@@ -3308,7 +3308,7 @@ def bot(op):
                 key = eval(msg.contentMetadata["MENTION"])
                 key1 = key["MENTIONEES"][0]["M"]
                 contact = jams.getContact(key1)
-                cu = vipro.channel.getCover(key1)
+                cu = jams.channel.getCover(key1)
                 try:
                     jams.sendText(msg.to, "===[StatusMessage]===\n" + contact.statusMessage)
                 except:
@@ -3390,11 +3390,11 @@ def bot(op):
 
 
             elif msg.text in ["Glist"]:
-                vipro.sendText(msg.to, "Tunggu Sebentar. . .")                    
+                jams.sendText(msg.to, "Tunggu Sebentar. . .")                    
                 gid = jams.getGroupIdsJoined()
                 h = ""
                 for i in gid:
-                    h += "╠➩" + "%s\n" % (jams.getGroup(i).name +" ~> ["+str(len(vipro.getGroup(i).members))+"]")
+                    h += "╠➩" + "%s\n" % (jams.getGroup(i).name +" ~> ["+str(len(jams.getGroup(i).members))+"]")
                 jams.sendText(msg.to,"╔═════════════════════════\n║          ☆☞ LIST GROUPS☜☆\n╠═════════════════════════\n" + h + "╠═════════════════════════" + "\n║ Total Groups =" +" ["+str(len(gid))+"]\n╚═════════════════════════")
 
             elif msg.text in ["Glistmid"]:   
@@ -3435,7 +3435,7 @@ def bot(op):
                             else:
                                 pendings = "0"
                             h = "[" + groups.name + "]\n -+GroupID : " + gid + "\n -+Members : " + members + "\n -+MembersPending : " + pendings + "\n -+Creator : " + groups.creator.displayName + "\n -+GroupPicture : http://dl.profile.line.naver.jp/" + groups.pictureStatus
-                            vipro.sendText(msg.to,h)
+                            jams.sendText(msg.to,h)
                         except Exception as error:
                             jams.sendText(msg.to,(error))
             
@@ -3465,7 +3465,7 @@ def bot(op):
                         if i is not None:
                             gids = jams.getGroup(i)
                             _list += gids.name
-                            vipro.acceptGroupInvitation(i)
+                            jams.acceptGroupInvitation(i)
                         else:
                             break
                     if gid is not None:
@@ -3517,7 +3517,7 @@ def bot(op):
                         else:
                             mc = "Target Mimic User:\n"
                             for mi_d in mimic["target"]:
-                                mc += "?? "+vipro.getContact(mi_d).displayName + "\n"
+                                mc += "?? "+jams.getContact(mi_d).displayName + "\n"
                             jams.sendText(msg.to,mc)
 
             elif "Mimic target " in msg.text:
