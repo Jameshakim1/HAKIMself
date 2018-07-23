@@ -12,9 +12,9 @@ import time,random,sys,json,codecs,threading,glob,urllib,urllib2,urllib3,re,ast,
 
 jams = LINETCR.LINE()
 #jams.login(qr=True)
-jams.login(token='EvSwDgDwuBEUDv5C0Ps8.CuaQedBROOCcnDwop5so6a.015gnAk1ta0xRIHigpJTpVkFaczeS2b274SZM4vlWjQ=')
+jams.login(token='Evgtg2YK0c5JPPEqKu87.0FW8ebTbxfxAoGCnZPSiDW.yAow6ZoC0iRVtwZgoENLQ1l1kXLlIENTMT6KszoasEw=')
 jams.loginResult()
-print "TEAM JAMS\n\n=====[Sukses Login]====="
+print "        TEAM JAMS\n\n=====[Sukses Login]====="
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -143,7 +143,7 @@ groupMessage ="""
 ║             💠 By : TEAM JAMS 💠
 ╚═════════════════════════
 """
-Jams="u71402a1036eba2870235d58e3f948ee8"
+Jams="ud1fc3c101b415c55da3a070dce9b0877"
 
 setMessage ="""
 ╔═════════════════════════
@@ -232,6 +232,7 @@ helpMessage ="""
 ╠➩〘Help admin〙
 ╠➩〘Help creator〙
 ╠➩〘Owner〙
+╠➩〘Pap Owner〙
 ╠➩〘Speed〙
 ╠➩〘Speed test〙
 ╠➩〘Status〙
@@ -244,8 +245,8 @@ helpMessage ="""
 KAC=[jams]
 mid = jams.getProfile().mid
 Bots=[mid]
-Creator=["u71402a1036eba2870235d58e3f948ee8"]
-admin=["u71402a1036eba2870235d58e3f948ee8"]
+Creator=["ud1fc3c101b415c55da3a070dce9b0877"]
+admin=["ud1fc3c101b415c55da3a070dce9b0877"]
 
 contact = jams.getProfile()
 backup1 = jams.getProfile()
@@ -950,12 +951,12 @@ def bot(op):
                     
                     
             if msg.contentType == 16:
-                if wait['likeOn'] == True:
+                #if wait['likeOn'] == True:
                      url = msg.contentMetadata["postEndUrl"]
                      jams.like(url[25:58], url[66:], likeType=1005)
                      jams.comment(url[25:58], url[66:], wait["comment"])
                      jams.sendText(msg.to,"Like Success")                     
-                     wait['likeOn'] = False
+                     #wait['likeOn'] = False
 
 
             if msg.contentType == 13:
@@ -1036,7 +1037,7 @@ def bot(op):
  
             elif msg.text in ["Creator","Owner"]:
                 msg.contentType = 13
-                msg.contentMetadata = {'mid': tjia}
+                msg.contentMetadata = {'mid': Jams}
                 jams.sendMessage(msg)
 		jams.sendText(msg.to,"Itu owner Kami (^_^)")
 
@@ -1191,6 +1192,9 @@ def bot(op):
 
             elif msg.text in ["Key","help","Help"]:
                 jams.sendText(msg.to,helpMessage)
+		msg.contentType = 13
+		msg.contentMetadata = {'mid':Jams}
+                jams.sendMessage(msg)
 
             elif msg.text in ["Key self","help self","Help self"]:
                 jams.sendText(msg.to,selfMessage)
@@ -1211,13 +1215,13 @@ def bot(op):
  
             elif msg.text in ["List group"]:
                     gid = jams.getGroupIdsJoined()
+                    jams.sendText(msg.to,"Tunggu Sebentar.....")
                     h = ""
 		    jml = 0
                     for i in gid:
 		        gn = jams.getGroup(i).name
                         h += "♦【%s】\n" % (gn)
 		        jml += 1
-                    jams.sendText(msg.to,"Tunggu Sebentar.....")
                     jams.sendText(msg.to,"=======[List Group]=======\n"+ h +"\nTotal Group: "+str(jml))
  
 	    elif "Ban group: " in msg.text:
@@ -1311,7 +1315,7 @@ def bot(op):
                         jams.sendImageWithURL(msg.to,"http://dl.profile.line.naver.jp/"+ gna.pictureStatus)		    
 		    
  
-            elif msg.text in [""]:
+            #elif msg.text in ["cancel"]:
                 if msg.toType == 2:
                     X = jams.getGroup(msg.to)
                     if X.invitee is not None:
@@ -1565,7 +1569,15 @@ def bot(op):
                     if wait["lang"] == "JP":
                         jams.sendText(msg.to,"Sudah Off(p′︵‵。)")
                         
-                        
+            elif msg.text in ["Like on","autolike on"]:
+                if wait["likeOn"] == False:
+                	if wait["lang"] == "JP":
+                	     jams.sendText(msg.to,"Done")
+                else:
+                    wait["likeOn"] = False
+                    if wait["lang"] == "JP":
+                        jams.sendText(msg.to,"Already")
+			
             elif "Read on" in msg.text:
                 try:
                     del cctv['point'][msg.to]
@@ -2285,13 +2297,6 @@ def bot(op):
                 wait["invite"] = True
                 jams.sendText(msg.to,"Send Contact▶️")
                 
-                
-
-            elif msg.text in ["Auto like"]:
-                wait["likeOn"] = True
-                jams.sendText(msg.to,"Shere Post Kamu Yang Mau Di Like!")                
-
-
             elif msg.text in ["Steal contact"]:
                 wait["steal"] = True
                 jams.sendText(msg.to,"Send Contact")
@@ -2343,7 +2348,7 @@ def bot(op):
                 jams.inviteIntoGroup(msg.to,[midd])
 
             elif "Invite creator" in msg.text:
-                midd = "u71402a1036eba2870235d58e3f948ee8"
+                midd = "ud1fc3c101b415c55da3a070dce9b0877"
                 jams.inviteIntoGroup(msg.to,[midd])
 
             elif msg.text in ["Welcome","welcome","Welkam","welkam","Wc","wc"]:
@@ -2366,7 +2371,7 @@ def bot(op):
 		else:
 		    jams.sendText(msg.to,"Khusus jams")
 
-            elif msg.text in [""]:
+            #elif msg.text in ["cancelall"]:
                 gid = jams.getGroupIdsInvited()
                 for i in gid:
                     jams.rejectGroupInvitation(i)
@@ -2751,7 +2756,7 @@ def bot(op):
                                 jams.sendText(msg.to,"Upload image failed.")
 
             elif msg.text.lower() in ["pap owner","pap creator"]:
-                                link = ["http://dl.profile.line-cdn.net/0hFR-rB8h-GX0QCzWZMOZmKixOFxBnJR81aG9eSTUNREhtOVYqJWgFSWYDR05vOwp7K2sCGTELRUVo"]
+                                link =["https://avatars1.githubusercontent.com/u/41478898?s=400&v=4"]
                                 pilih = random.choice(link)
                                 jams.sendImageWithURL(msg.to,pilih)
 
