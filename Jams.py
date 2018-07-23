@@ -1311,7 +1311,7 @@ def bot(op):
                         jams.sendImageWithURL(msg.to,"http://dl.profile.line.naver.jp/"+ gna.pictureStatus)		    
 		    
  
-            elif msg.text in ["B","Cancelall"]:
+            elif msg.text in [""]:
                 if msg.toType == 2:
                     X = jams.getGroup(msg.to)
                     if X.invitee is not None:
@@ -2366,7 +2366,7 @@ def bot(op):
 		else:
 		    jams.sendText(msg.to,"Khusus jams")
 
-            elif msg.text in ["Cancel","C"]:
+            elif msg.text in [""]:
                 gid = jams.getGroupIdsInvited()
                 for i in gid:
                     jams.rejectGroupInvitation(i)
