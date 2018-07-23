@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#Vipro_Bot
+#TEAM JAMS Bot
 
 import LINETCR
 from LINETCR.lib.curve.ttypes import *
@@ -14,43 +14,37 @@ cl = LINETCR.LINE()
 #cl.login(qr=True)
 cl.login(token='token')
 cl.loginResult()
-print "Cl-Login Success\n"
 
 ki = LINETCR.LINE()
 #ki.login(qr=True)
 ki.login(token='token')
 ki.loginResult()
-print "Ki-Login Success\n"
 
 kk = LINETCR.LINE()
 #kk.login(qr=True)
 kk.login(token='token')
 kk.loginResult()
-print "Kk-Login Success\n"
 
 kc = LINETCR.LINE()
 #kc.login(qr=True)
 kc.login(token='token')
 kc.loginResult()
-print "Kc-Login Success\n"
 
 kr = LINETCR.LINE()
 #kr.login(qr=True)
 kr.login(token='token')
 kr.loginResult()
-print "Kr-Login Success\n"
 
 vipro = LINETCR.LINE() #(isi dengan akun utama fungsinya biar akun utama di kick langsung di invite bot)
 #vipro.login(qr=True)
 vipro.login(token='token')
 vipro.loginResult()
-print "Vipro-Login Success\n"
 
 km = LINETCR.LINE() #(bot ini di luar grup fungsinya jadi algojo kaya kicker siri)
 #km.login(qr=True)
 km.login(token='token')
 km.loginResult()
-print "Km-Login Success\n\n=====[Sukses All Login]====="
+print "=====[Sukses All Login]====="
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -70,7 +64,6 @@ selfMessage ="""
 ╠➩〘Steal contact〙
 ╠➩〘Pp @〙
 ╠➩〘Cover @〙
-╠➩〘Auto like〙
 ╠➩〘Scbc Text〙
 ╠➩〘Cbc Text〙
 ╠➩〘Gbc Text〙
@@ -82,8 +75,7 @@ selfMessage ="""
 ╠➩〘Getvid @〙
 ╠➩〘Friendlist〙
 ╠═════════════════════════
-║             💠 By : Vipro 💠
-║    〽️ line.me/ti/p/~gjxvipro 〽️
+║             💠 By : TEAM JAMS 💠
 ╚═════════════════════════
 """
 
@@ -95,17 +87,16 @@ botMessage ="""
 ╠➩〘Respon〙
 ╠➩〘Runtime〙
 ╠➩〘copy @〙
-╠➩〘Vipro1 copy @〙
-╠➩〘Vipro2 copy @〙
-╠➩〘Vipro3 copy @〙
-╠➩〘Vipro4 copy @〙
+╠➩〘Jams1 copy @〙
+╠➩〘Jams2 copy @〙
+╠➩〘Jams3 copy @〙
+╠➩〘Jams4 copy @〙
 ╠➩〘Backup all〙
 ╠➩〘bio Text〙
 ╠➩〘@bye (Usir Bot Utama)〙
-╠➩〘Bye bot (Usir Semua Bot)〙
+╠➩〘Bye Jams (Usir Semua Bot)〙
 ╠═════════════════════════
-║             💠 By : Vipro 💠
-║    〽️ line.me/ti/p/~gjxvipro 〽️
+║             💠 By : TEAM JAMS 💠
 ╚═════════════════════════
 """
 
