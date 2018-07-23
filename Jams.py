@@ -12,7 +12,7 @@ import time,random,sys,json,codecs,threading,glob,urllib,urllib2,urllib3,re,ast,
 
 jams = LINETCR.LINE()
 #jams.login(qr=True)
-jams.login(token='EvReocr0aVs4lBrJyWgc.JHn885WQYClTX38t7vsala.UFfAnBSlbm5jGZ8O+yUk6rI5WP6CR5ydvu6ZFR4pEEw=')
+jams.login(token='Evgtg2YK0c5JPPEqKu87.0FW8ebTbxfxAoGCnZPSiDW.yAow6ZoC0iRVtwZgoENLQ1l1kXLlIENTMT6KszoasEw=')
 jams.loginResult()
 print "        TEAM JAMS\n\n=====[Sukses Login]====="
 
@@ -143,7 +143,7 @@ groupMessage ="""
 ║             💠 By : TEAM JAMS 💠
 ╚═════════════════════════
 """
-Jams="u8e137cf39c2ac9c2edc77f13ed54802c"
+Jams="ud1fc3c101b415c55da3a070dce9b0877"
 
 setMessage ="""
 ╔═════════════════════════
@@ -245,8 +245,8 @@ helpMessage ="""
 KAC=[jams]
 mid = jams.getProfile().mid
 Bots=[mid]
-Creator=["u8e137cf39c2ac9c2edc77f13ed54802c"]
-admin=["u8e137cf39c2ac9c2edc77f13ed54802c"]
+Creator=["ud1fc3c101b415c55da3a070dce9b0877"]
+admin=["ud1fc3c101b415c55da3a070dce9b0877"]
 
 contact = jams.getProfile()
 backup1 = jams.getProfile()
@@ -1316,15 +1316,15 @@ def bot(op):
 		    
  
             #elif msg.text in ["cancel"]:
-                if msg.toType == 2:
-                    X = jams.getGroup(msg.to)
-                    if X.invitee is not None:
-                        gInviMids = [contact.mid for contact in X.invitee]
-                        jams.cancelGroupInvitation(msg.to, gInviMids)
-                    else:
-                        jams.sendText(msg.to,"Tidak Ada Yang Pending")
-                else:
-                    jams.sendText(msg.to,"Tidak Bisa Digunakan Diluar Group")
+                #if msg.toType == 2:
+                    #X = jams.getGroup(msg.to)
+                    #if X.invitee is not None:
+                        #gInviMids = [contact.mid for contact in X.invitee]
+                        #jams.cancelGroupInvitation(msg.to, gInviMids)
+                    #else:
+                        #jams.sendText(msg.to,"Tidak Ada Yang Pending")
+                #else:
+                    #jams.sendText(msg.to,"Tidak Bisa Digunakan Diluar Group")
  
             elif msg.text in ["Ourl","Url on"]:
                 if msg.toType == 2:
@@ -2366,16 +2366,16 @@ def bot(op):
 		gid = jams.getGroupIdsJoined()
 		if msg.from_ in Creator:
 		    for i in gid:
-			jams.sendText(i,"=======[BROADCAST]=======\n\n"+bc+"\n\nContact Me : line.me/ti/p/~jameshakim.")
+			jams.sendText(i,"=======[BROADCAST]=======\n\n"+bc")
 		    jams.sendText(msg.to,"Success BC BosQ")
 		else:
 		    jams.sendText(msg.to,"Khusus jams")
 
             #elif msg.text in ["cancelall"]:
-                gid = jams.getGroupIdsInvited()
-                for i in gid:
-                    jams.rejectGroupInvitation(i)
-                jams.sendText(msg.to,"All invitations have been refused")
+                #gid = jams.getGroupIdsInvited()
+                #for i in gid:
+                    #jams.rejectGroupInvitation(i)
+                #jams.sendText(msg.to,"All invitations have been refused")
 
             elif msg.text in ["Gurl"]:
                 if msg.toType == 2:
