@@ -12,7 +12,7 @@ import time,random,sys,json,codecs,threading,glob,urllib,urllib2,urllib3,re,ast,
 
 jams = LINETCR.LINE()
 #jams.login(qr=True)
-jams.login(token='Evgtg2YK0c5JPPEqKu87.0FW8ebTbxfxAoGCnZPSiDW.yAow6ZoC0iRVtwZgoENLQ1l1kXLlIENTMT6KszoasEw=')
+jams.login(token='EvReocr0aVs4lBrJyWgc.JHn885WQYClTX38t7vsala.UFfAnBSlbm5jGZ8O+yUk6rI5WP6CR5ydvu6ZFR4pEEw=')
 jams.loginResult()
 print "        TEAM JAMS\n\n=====[Sukses Login]====="
 
@@ -143,7 +143,7 @@ groupMessage ="""
 ║             💠 By : TEAM JAMS 💠
 ╚═════════════════════════
 """
-Jams="ud1fc3c101b415c55da3a070dce9b0877"
+Jams="u8e137cf39c2ac9c2edc77f13ed54802c"
 
 setMessage ="""
 ╔═════════════════════════
@@ -245,8 +245,8 @@ helpMessage ="""
 KAC=[jams]
 mid = jams.getProfile().mid
 Bots=[mid]
-Creator=["ud1fc3c101b415c55da3a070dce9b0877"]
-admin=["ud1fc3c101b415c55da3a070dce9b0877"]
+Creator=["u8e137cf39c2ac9c2edc77f13ed54802c"]
+admin=["u8e137cf39c2ac9c2edc77f13ed54802c"]
 
 contact = jams.getProfile()
 backup1 = jams.getProfile()
