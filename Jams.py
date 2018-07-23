@@ -2366,7 +2366,7 @@ def bot(op):
 		gid = jams.getGroupIdsJoined()
 		if msg.from_ in Creator:
 		    for i in gid:
-			jams.sendText(i,+bc)
+			jams.sendText(i,"=======[BROADCAST]=======\n\n"+bc)
 		    jams.sendText(msg.to,"Success BC BosQ")
 		else:
 		    jams.sendText(msg.to,"Khusus jams")
