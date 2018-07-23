@@ -14,7 +14,7 @@ jams = LINETCR.LINE()
 #jams.login(qr=True)
 jams.login(token='EvSwDgDwuBEUDv5C0Ps8.CuaQedBROOCcnDwop5so6a.015gnAk1ta0xRIHigpJTpVkFaczeS2b274SZM4vlWjQ=')
 jams.loginResult()
-print "Login Success\n\n=====[Sukses Login]====="
+print "TEAM JAMS\n\n=====[Sukses Login]====="
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -66,7 +66,7 @@ botMessage ="""
 ╠➩〘Mybio (Text)〙
 ╠➩〘Myname (Text)〙
 ╠➩〘@bye〙
-╠➩〘Bot on/off〙
+╠➩〘Jams on/off〙
 ╠═════════════════════════
 ║             💠 By : TEAM JAMS 💠
 ╚═════════════════════════
@@ -538,7 +538,7 @@ def bot(op):
 
         if op.type == 5:
            if wait["autoAdd"] == True:
-              vipro.findAndAddContactsByMid(op.param1)
+              jams.findAndAddContactsByMid(op.param1)
               if(wait["message"]in[""," ","\n",None]):
                 pass
               else:
@@ -659,8 +659,8 @@ def bot(op):
                     pass
                 elif wait["inviteprotect"] == True:
                     wait ["blacklist"][op.param2] = True
-                    vipro.cancelGroupInvitation(op.param1,[op.param3])
-                    vipro.kickoutFromGroup(op.param1,[op.param2])
+                    jams.cancelGroupInvitation(op.param1,[op.param3])
+                    jams.kickoutFromGroup(op.param1,[op.param2])
                     if op.param2 not in Creator:
                      if op.param2 not in admin:
                       if op.param2 not in Bots:
@@ -829,7 +829,7 @@ def bot(op):
             if msg.from_ in mimic["target"] and mimic["status"] == True and mimic["target"][msg.from_] == True:
                     text = msg.text
                     if text is not None:
-                        vipro.sendText(msg.to,text)             
+                        jams.sendText(msg.to,text)             
             
             
             if msg.to in settings["simiSimi"]:
@@ -845,7 +845,7 @@ def bot(op):
 
             if 'MENTION' in msg.contentMetadata.keys() != None:
                  if wait["kickMention"] == True:
-                     contact = vipro.getContact(msg.from_)
+                     contact = jams.getContact(msg.from_)
                      cName = contact.displayName
                      balas = ["Aku Bilang Jangan Ngetag Lagi " + cName + "\nAku Kick Kamu! Sorry, Byee!!!"]
                      ret_ = random.choice(balas)                     
@@ -1078,7 +1078,7 @@ def bot(op):
                         for target in targets:
                             try:
                                 jams.findAndAddContactsByMid(target)
-                                contact = vipro.getContact(target)
+                                contact = jams.getContact(target)
                                 cu = jams.channel.getCover(target)
                                 path = str(cu)
                                 image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
@@ -1250,7 +1250,7 @@ def bot(op):
 		if msg.from_ in admin:
 		    ng = msg.text.replace("Del ban: ","")
 		    for gid in wait["BlGroup"]:
-		        if vipro.getGroup(gid).name == ng:
+		        if jams.getGroup(gid).name == ng:
 			    del wait["BlGroup"][gid]
 			    jams.sendText(msg.to, "Success del ban "+ng)
 		        else:
@@ -1583,9 +1583,9 @@ def bot(op):
                 if msg.to in cctv['point']:
                     cctv['cyduk'][msg.to]=False
                     wait["Sider"] = False
-                    vipro.sendText(msg.to, "Cek Sider Off")
+                    jams.sendText(msg.to, "Cek Sider Off")
                 else:
-                    vipro.sendText(msg.to, "Heh Belom Di Set")                         
+                    jams.sendText(msg.to, "Heh Belom Di Set")                         
 
 
             elif msg.text in ["Status"]:
@@ -2274,11 +2274,11 @@ def bot(op):
 		    jams.sendText(msg.to, "Jumlah minimal member telah di set : "+jml)
 
 	    elif "Add all" in msg.text:
-		    thisgroup = vipro.getGroups([msg.to])
+		    thisgroup = jams.getGroups([msg.to])
 		    Mids = [contact.mid for contact in thisgroup[0].members]
 		    mi_d = Mids[:33]
-		    vipro.findAndAddContactsByMids(mi_d)
-		    vipro.sendText(msg.to,"Success Add all")
+		    jams.findAndAddContactsByMids(mi_d)
+		    jams.sendText(msg.to,"Success Add all")
 
 
             elif msg.text in ["Invite"]:
@@ -2486,7 +2486,7 @@ def bot(op):
                                 json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                                 jams.sendText(msg.to,"Succes BosQ")
                             except:
-                                vipro.sendText(msg.to,"Succes BosQ")
+                                jams.sendText(msg.to,"Succes BosQ")
                                 
                                 
             elif msg.text.lower() == 'clear ban':
@@ -2510,7 +2510,7 @@ def bot(op):
                             jams.kickoutFromGroup(msg.to,[jj])
                         jams.sendText(msg.to,"Blacklist emang pantas tuk di usir")
 		else:
-		    vipro.sendText(msg.to, "Khusus jams")
+		    jams.sendText(msg.to, "Khusus jams")
  
             elif msg.text in ["Kill"]:
                     if msg.toType == 2:
@@ -2536,7 +2536,7 @@ def bot(op):
                      if msg.toType == 2:
                         print "Kick all member"
                         _name = msg.text.replace("What","")
-                        gs = vipro.getGroup(msg.to)
+                        gs = jams.getGroup(msg.to)
                         #jams.sendText(msg.to,"Dadaaah~")
                         targets = []
                         for g in gs.members:
@@ -2676,7 +2676,7 @@ def bot(op):
                             try:
                                 h = jams.channel.getHome(target)
                                 objId = h["result"]["homeInfo"]["objectId"]
-                                vipro.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/myhome/c/download.nhn?userid=" + target + "&oid=" + objId)
+                                jams.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/myhome/c/download.nhn?userid=" + target + "&oid=" + objId)
                             except Exception as error:
                                 print error
                                 jams.sendText(msg.to,"Upload image failed.")
@@ -2695,7 +2695,7 @@ def bot(op):
                     else:
                         for target in targets:
                             try:
-                                h = vipro.channel.getHome(target)
+                                h = jams.channel.getHome(target)
                                 objId = h["result"]["homeInfo"]["objectId"]
                                 jams.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/myhome/c/download.nhn?userid=" + target + "&oid=" + objId)
                             except Exception as error:
@@ -2704,7 +2704,7 @@ def bot(op):
                                 
             elif "Cpp" in msg.text:
                 if msg.from_ in admin:
-                    path = "vipro.jpg"
+                    path = "jams.jpg"
                     jams.sendText(msg.to,"Update PP :")
                     jams.sendImage(msg.to,path)
                     jams.updateProfilePicture(path)                                
@@ -2724,7 +2724,7 @@ def bot(op):
                     else:
                         for target in targets:
                             try:
-                                h = vipro.getContact(target)
+                                h = jams.getContact(target)
                                 jams.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + h.pictureStatus)
                             except Exception as error:
                                 print error
@@ -2981,7 +2981,7 @@ def bot(op):
 
 
             elif msg.text.lower() in ["hi","hai","halo","hallo"]:
-                    beb = "Hi Sayang 😘 " +vipro.getContact(msg.from_).displayName + " 􀸂􀆇starry heart􏿿"
+                    beb = "Hi Sayang 😘 " +jams.getContact(msg.from_).displayName + " 􀸂􀆇starry heart􏿿"
                     jams.sendText(msg.to,beb)
 
 
