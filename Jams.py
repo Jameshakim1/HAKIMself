@@ -12,7 +12,7 @@ import time,random,sys,json,codecs,threading,glob,urllib,urllib2,urllib3,re,ast,
 
 jams = LINETCR.LINE()
 #jams.login(qr=True)
-jams.login(token='EvabWJw3wwxXG4Z3Somf.XMOM9Jw6r6hPuxrLjMbyxW.tnvhoem050CiawiT8g80BD6TSjP/QiRmRnIt0fCAddc=')
+jams.login(token='EvyLXtxbMvXIPW1t328f.XMOM9Jw6r6hPuxrLjMbyxW.g+BcxS0TEE9aXhEoHuBhqxWWTdao4ms643N824yit+0=')
 jams.loginResult()
 print "        TEAM JAMS\n\n=====[Sukses Login]====="
 
@@ -49,7 +49,7 @@ selfMessage ="""
 ╠➩〘Micdel @〙
 ╠➩〘Miclist〙
 ╠═════════════════════════
-║             💠 By : TEAM JAMS 💠
+║             ☠ By : TEAM JAMS ☠
 ╚═════════════════════════
 """
 
@@ -68,7 +68,7 @@ botMessage ="""
 ╠➩〘@bye〙
 ╠➩〘Jams on/off〙
 ╠═════════════════════════
-║             💠 By : TEAM JAMS 💠
+║             ☠ By : TEAM JAMS ☠
 ╚═════════════════════════
 """
 
@@ -106,7 +106,7 @@ mediaMessage ="""
 ╠➩〘Id@th Text (Translate ID Ke TH〙
 ╠➩〘En@id Text (Translate En Ke ID〙
 ╠═════════════════════════
-║             💠 By : TEAM JAMS 💠
+║             ☠ By : TEAM JAMS ☠
 ╚═════════════════════════
 """
 
@@ -140,7 +140,7 @@ groupMessage ="""
 ╠➩〘Getgroup image〙
 ╠➩〘Urlgroup Image〙
 ╠═════════════════════════
-║             💠 By : TEAM JAMS 💠
+║             ☠ By : TEAM JAMS ☠
 ╚═════════════════════════
 """
 Jams="uc66a26f635ba47a1e95174652660585f"
@@ -158,7 +158,7 @@ setMessage ="""
 ╠➩〘Sticker on〙
 ╠➩〘Simisimi on/off〙
 ╠═════════════════════════
-║             💠 By : TEAM JAMS 💠
+║             ☠ By : TEAM JAMS ☠
 ╚═════════════════════════
 """
 
@@ -176,7 +176,7 @@ creatorMessage ="""
 ╠➩〘Bot restart〙
 ╠➩〘Turn off〙
 ╠═════════════════════════
-║             💠 By : TEAM JAMS 💠
+║             ☠ By : TEAM JAMS ☠
 ╚═════════════════════════
 """
 
@@ -216,7 +216,7 @@ adminMessage ="""
 ╠➩〘Respon3 on/off〙
 ╠➩〘Responkick on/off〙
 ╠═════════════════════════
-║             💠 By : TEAM JAMS 💠
+║             ☠ By : TEAM JAMS ☠
 ╚═════════════════════════
 """
 
@@ -237,7 +237,7 @@ helpMessage ="""
 ╠➩〘Speed test〙
 ╠➩〘Status〙
 ╠═════════════════════════
-║             💠 By : TEAM JAMS 💠
+║             ☠ By : TEAM JAMS ☠
 ╚═════════════════════════
 """
 
