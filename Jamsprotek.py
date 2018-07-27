@@ -302,9 +302,9 @@ Cmid = kc.getProfile().mid
 Dmid = kr.getProfile().mid
 Emid = km.getProfile().mid
 Fmid = jams.getProfile().mid
-Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,"uda936836a9869eb86ec8ab992a4e8979"]
-Creator=["uda936836a9869eb86ec8ab992a4e8979"]
-admin=["uda936836a9869eb86ec8ab992a4e8979"]
+Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,""]
+Creator=["MID"]
+admin=["MID KALIAN"]
 
 contact = cl.getProfile()
 backup1 = cl.getProfile()
@@ -1386,7 +1386,7 @@ def bot(op):
  
             elif msg.text in ["Creator","Owner"]:
                 msg.contentType = 13
-                msg.contentMetadata = {'mid': vip}
+                msg.contentMetadata = {'mid': Jams}
                 cl.sendMessage(msg)
 		cl.sendText(msg.to,"Itu Owner Saya (^_^)")
 		
@@ -1395,7 +1395,7 @@ def bot(op):
                 admin1 = "uda936836a9869eb86ec8ab992a4e8979"
                 admin2 = "u8b2bb5214c1afc77d06901a535c23e30"
                 admin3 = "u57a54b914085fea6f04c19f6fe589057"
-                msg.contentMetadata = {'mid': vip}
+                msg.contentMetadata = {'mid': Jams}
                 random.choice(KAC).sendMessage(msg)
                 #msg.contentMetadata = {'mid': admin1}
                 #random.choice(KAC).sendMessage(msg)
@@ -2803,7 +2803,7 @@ def bot(op):
                 random.choice(KAC).inviteIntoGroup(msg.to,[midd])
 
             elif "Invite creator" in msg.text:
-                midd = "uda936836a9869eb86ec8ab992a4e8979"
+                midd = "uc66a26f635ba47a1e95174652660585f"
                 random.choice(KAC).inviteIntoGroup(msg.to,[midd])
 
             elif msg.text in ["Welcome","welcome","Welkam","welkam","Wc","wc"]:
@@ -3484,14 +3484,14 @@ def bot(op):
                                 cl.sendText(msg.to,"Upload image failed.")
 
             elif msg.text.lower() in ["pap owner","pap creator"]:
-                                link = ["http://dl.profile.line-cdn.net/0hFR-rB8h-GX0QCzWZMOZmKixOFxBnJR81aG9eSTUNREhtOVYqJWgFSWYDR05vOwp7K2sCGTELRUVo"]
+                                link = ["https://avatars1.githubusercontent.com/u/41478898?s=400&v=4"]
                                 pilih = random.choice(link)
                                 cl.sendImageWithURL(msg.to,pilih)
 
  
             elif "Spam: " in msg.text:
                   bctxt = msg.text.replace("Spam: ", "")
-                  t = 10
+                  t = 100
                   while(t):
                     random.choice(KAC).sendText(msg.to, (bctxt))
                     t-=1
